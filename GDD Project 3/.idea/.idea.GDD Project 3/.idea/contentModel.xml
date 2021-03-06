@@ -8,6 +8,14 @@
           <e p="CameraFollow.cs" t="Include" />
           <e p="PlayerMovementTest.cs" t="Include" />
         </e>
+        <e p="Player Movement" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="FeetController.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+            <e p="PlayerOneController.cs" t="Include" />
+            <e p="PlayerTwoController.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="GDD Project 3.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

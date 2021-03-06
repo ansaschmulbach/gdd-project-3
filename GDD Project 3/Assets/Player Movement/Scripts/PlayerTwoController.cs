@@ -24,6 +24,8 @@ public class PlayerTwoController : MonoBehaviour
 		if (collision.gameObject.CompareTag("Player"))
 		{
 			collision.gameObject.GetComponent<PlayerMovement>().isActive = false;
+			collision.collider.enabled = false;
+			Destroy(collision.collider.GetComponent<Rigidbody2D>());
 			pm.isActive = true;
 		}
 	}

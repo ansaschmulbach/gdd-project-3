@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour
     #region Cached Values
     
     [SerializeField] private Transform cr_Player;
+    [SerializeField] private PlayerMovement cr_PM;
     private Camera cr_Camera;
 
     #endregion
@@ -28,7 +29,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        cr_Player = GameObject.FindWithTag("Player").transform;
+        UpdatePlayer();
         cr_Camera = GetComponent<Camera>();
     }
 
@@ -38,12 +39,30 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
+        if (!cr_PM.isActive)
+        {
+            UpdatePlayer();
+        }
         if (cr_Player)
         {
             Vector3 point = cr_Camera.WorldToViewportPoint(cr_Player.position);
             Vector3 delta = cr_Player.position - cr_Camera.ViewportToWorldPoint(new Vector3(m_OffSet.x, m_OffSet.y, point.z));
             Vector3 destination = transform.position + delta;
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref p_Velocity, m_DampTime);
+        }
+    }
+
+    void UpdatePlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            PlayerMovement pm = player.GetComponent<PlayerMovement>();
+            if (pm.isActive)
+            {
+                cr_Player = player.transform;
+                cr_PM = pm;
+            }
         }
     }
 
