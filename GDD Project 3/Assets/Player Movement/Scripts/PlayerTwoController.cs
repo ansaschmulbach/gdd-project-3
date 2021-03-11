@@ -13,13 +13,25 @@ public class PlayerTwoController : PlayerController
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		
+		Debug.Log(collision.gameObject.tag);
+		
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			if (collision.collider.TryGetComponent(out PlayerController pc))
+			Debug.Log(collision.gameObject);
+			if (collision.gameObject.TryGetComponent(out PlayerController pc))
 			{
+				Debug.Log("setting disabled");
 				pc.SetDisabled();
 				this.SetEnabled();
 			}
+		} 
+		else if (collision.gameObject.CompareTag("LeftRight"))
+		{
+			PlayerController pc = collision.collider.GetComponentInParent<PlayerController>();
+			pc.SetDisabled();
+			this.SetEnabled();
+			
 		}
 	}
 	

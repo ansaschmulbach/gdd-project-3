@@ -20,14 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fba68c36-df10-4f6f-8781-ba42c40f6e79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera Following/DropAfterMoves.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera Following/DropAfterMoves.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera Following/MovementTestScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera Following/MovementTestScene 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MVP Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MVP Level.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
@@ -49,11 +44,11 @@
         <option value="$PROJECT_DIR$/Assets/Camera Following/PlayerMovementTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera Following/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerOneController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera Following/DropAfterMoves.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" />
       </list>
     </option>
   </component>
@@ -100,7 +95,7 @@
       <workItem from="1614832299368" duration="1466000" />
       <workItem from="1615003459749" duration="3950000" />
       <workItem from="1615435939077" duration="148000" />
-      <workItem from="1615450395235" duration="3000000" />
+      <workItem from="1615450395235" duration="4037000" />
     </task>
     <servers />
   </component>
