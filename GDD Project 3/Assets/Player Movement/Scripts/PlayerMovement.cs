@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField]
 	[Tooltip("Can you move mid-air?")]
-	public bool movementRequiresPropulsion;
+	public bool touchingFloor;
+
+	[SerializeField] [Tooltip("Can you wall jump?")]
+	public bool canWallJump = false;
 
 	[SerializeField]
 	[Tooltip("Jump speed")]
@@ -32,12 +36,15 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField]
 	[Tooltip("Max jump rate in seconds")]
 	private float maxJumpRate = 0.6f;
-
+	
+	/**If you're touching a wall, you can't propulse*/
+	private bool touchingWall;
+	
 	#endregion
 
 	#region Propulsion variables
 
-	private bool m_canPropulse = false;
+	private bool m_canPropulse = true;
 	public bool canPropulse
 	{
 		get { return m_canPropulse; }
@@ -88,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 			return;
 		}
 
-		if (m_canPropulse || !movementRequiresPropulsion)
+		if (m_canPropulse && !touchingWall || touchingFloor)
 		{
 			if (Input.GetAxisRaw("Horizontal") == 1)
 			{
@@ -101,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		if (m_canPropulse || left || right) {
+		if (touchingFloor || left || right) {
 			if (Input.GetKey(KeyCode.Space))
 			{
 				Jump();
@@ -132,6 +139,26 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 			rb.AddForce(Vector2.up * jumpSpeed);
+		}
+	}
+
+	#endregion
+
+	#region Collision Methods
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.collider.CompareTag("Wall"))
+		{
+			this.touchingWall = true;
+		}
+	}
+
+	private void OnCollisionExit2D(Collision2D other)
+	{
+		if (other.collider.CompareTag("Wall"))
+		{
+			this.touchingWall = false;
 		}
 	}
 

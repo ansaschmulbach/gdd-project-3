@@ -4,11 +4,17 @@ using UnityEngine;
 public abstract class PlayerController : MonoBehaviour
 {
 
+    #region Inspector Variables
+
+    #endregion
+    
     #region Cached Values
 
     private PlayerMovement cr_pm;
     private Collider2D cr_col;
     private Collider2D cr_feet_col;
+    private Collider2D cr_left_col;
+    private Collider2D cr_right_col;
 
     #endregion
 
@@ -19,6 +25,11 @@ public abstract class PlayerController : MonoBehaviour
         cr_pm = GetComponent<PlayerMovement>();
         cr_col = GetComponent<Collider2D>();
         cr_feet_col = GetComponentInChildren<FeetController>().GetComponent<BoxCollider2D>();
+        if (cr_pm.canWallJump)
+        {
+            cr_left_col = GetComponentInChildren<LeftColliderScript>().GetComponent<BoxCollider2D>();
+            cr_right_col = GetComponentInChildren<RightColliderScript>().GetComponent<BoxCollider2D>();
+        }
         SetStartState();
     }
 
@@ -34,6 +45,11 @@ public abstract class PlayerController : MonoBehaviour
         this.GetComponent<Rigidbody2D>().isKinematic = false;
         cr_col.enabled = true;
         cr_feet_col.enabled = true;
+        if (cr_pm.canWallJump)
+        {
+            cr_left_col.enabled = true;
+            cr_right_col.enabled = true;   
+        }
     }
     
     public void SetDisabled()
@@ -45,6 +61,11 @@ public abstract class PlayerController : MonoBehaviour
         rb.isKinematic = true;
         cr_col.enabled = false;
         cr_feet_col.enabled = false;
+        if (cr_pm.canWallJump)
+        {
+            cr_left_col.enabled = false;
+            cr_right_col.enabled = false;
+        }
     }
 
     public void DisableMovement()

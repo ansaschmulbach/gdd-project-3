@@ -13,6 +13,9 @@ public class DropAfterMoves : MonoBehaviour
 
     [SerializeField] [Tooltip("The amount of time to wait before dropping")]
     private float m_DropDelay = 0.2f;
+
+    [SerializeField] [Tooltip("Amount of time between when collisions are counted")]
+    private float m_ColTimer = 0.03f;
     
     #endregion
     
@@ -25,6 +28,7 @@ public class DropAfterMoves : MonoBehaviour
     #region private variables
 
     private bool p_dropping;
+    private float p_ColTimer = 0;
 
     #endregion
     
@@ -35,15 +39,30 @@ public class DropAfterMoves : MonoBehaviour
         p_RB = this.GetComponent<Rigidbody2D>();
         p_RB.constraints = RigidbodyConstraints2D.FreezeAll;
         p_dropping = false;
+        p_ColTimer = m_ColTimer;
     }
 
     #endregion
 
+    #region Updates
+
+    private void Update()
+    {
+        p_ColTimer -= Time.deltaTime;
+    }
+
+    #endregion
+    
     #region Collision Methods
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (p_dropping)
+        {
+            return;
+        }
+
+        if (p_ColTimer > 0)
         {
             return;
         }
@@ -66,6 +85,7 @@ public class DropAfterMoves : MonoBehaviour
         
         if (pm.isActive)
         {
+            Debug.Log(other.gameObject);
             this.m_NumContacts -= 1;
             if (this.m_NumContacts == 0)
             {
@@ -74,6 +94,9 @@ public class DropAfterMoves : MonoBehaviour
             }
             
         }
+
+        p_ColTimer = m_ColTimer;
+
     }
 
     #endregion

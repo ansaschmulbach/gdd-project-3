@@ -15,11 +15,19 @@ public class FeetController : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		pm.canPropulse = true;
+		if (collision.collider.CompareTag("Floor"))
+		{
+			//pm.canPropulse = true;
+			pm.touchingFloor = true;	
+		}
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		pm.canPropulse = false;
+		if (collision.collider.CompareTag("Floor"))
+		{
+			//pm.canPropulse = false;
+			pm.touchingFloor = false;
+		}
 	}
 }

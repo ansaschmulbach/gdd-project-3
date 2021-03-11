@@ -7,6 +7,7 @@ public class PlayerTwoController : PlayerController
 
 	protected override void SetStartState()
 	{
+		Debug.Log("hi ");
 		DisableMovement();
 	}
 
