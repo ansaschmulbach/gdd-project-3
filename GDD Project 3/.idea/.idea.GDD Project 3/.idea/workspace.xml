@@ -22,9 +22,9 @@
     <list default="true" id="fba68c36-df10-4f6f-8781-ba42c40f6e79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MVP Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MVP Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +45,10 @@
         <option value="$PROJECT_DIR$/Assets/Camera Following/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerOneController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera Following/DropAfterMoves.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -95,7 +95,8 @@
       <workItem from="1614832299368" duration="1466000" />
       <workItem from="1615003459749" duration="3950000" />
       <workItem from="1615435939077" duration="148000" />
-      <workItem from="1615450395235" duration="4037000" />
+      <workItem from="1615450395235" duration="4576000" />
+      <workItem from="1615517952467" duration="883000" />
     </task>
     <servers />
   </component>
@@ -120,9 +121,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="528" y="142" width="672" height="678" key="search.everywhere.popup" timestamp="1615450971615">
-      <screen x="0" y="23" width="1440" height="798" />
+    <state x="528" y="142" width="672" height="678" key="search.everywhere.popup" timestamp="1615518409530">
+      <screen x="0" y="23" width="1440" height="797" />
     </state>
+    <state x="528" y="142" width="672" height="678" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1615518409530" />
     <state x="528" y="142" width="672" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1615450971615" />
   </component>
 </project>

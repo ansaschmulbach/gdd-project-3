@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1000
   touchingFloor: 0
-  canWallJump: 1
+  canWallJump: 0
   jumpSpeed: 500
   isActive: 1
   maxJumpRate: 0.6
@@ -267,7 +267,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -340,10 +340,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1e616427a89214f8515cdb36cc8d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1250
+  movementSpeed: 1000
   touchingFloor: 0
   canWallJump: 0
-  jumpSpeed: 400
+  jumpSpeed: 500
   isActive: 1
   maxJumpRate: 0.6
 --- !u!61 &86181944
@@ -653,8 +653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b279e6ad42534543b1b9951163b0fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DampTime: 0.15
-  m_OffSet: {x: 0.5, y: 0.5}
+  m_DampTime: 0
+  m_OffSet: {x: 0.5, y: 0.7}
   cr_Player: {fileID: 0}
   cr_PM: {fileID: 0}
 --- !u!1 &414750590
@@ -851,7 +851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &579901478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NumContacts: 1
-  m_DropDelay: 0.2
+  m_DropDelay: 0.4
   m_ColTimer: 0.03
 --- !u!50 &1292679234
 Rigidbody2D:
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NumContacts: 2
-  m_DropDelay: 0.2
+  m_DropDelay: 0.4
   m_ColTimer: 0.03
 --- !u!61 &1432000297
 BoxCollider2D:
@@ -1896,8 +1896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NumContacts: 2
-  m_DropDelay: 0.03
-  m_ColTimer: 0.1
+  m_DropDelay: 0.2
+  m_ColTimer: 0.03
 --- !u!61 &1595673360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1987,6 +1987,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1957291514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957291517}
+  - component: {fileID: 1957291516}
+  - component: {fileID: 1957291515}
+  m_Layer: 0
+  m_Name: Full Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1957291515
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957291514}
+  m_Enabled: 1
+--- !u!20 &1957291516
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957291514}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.42091295, g: 0.4033019, b: 0.5, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.75
+    height: 0.25
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 11.685788
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1957291517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957291514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 7, z: -117.486374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008016860
 GameObject:
@@ -2112,8 +2195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NumContacts: 1
-  m_DropDelay: 0.03
-  m_ColTimer: 0.1
+  m_DropDelay: 0.4
+  m_ColTimer: 0.03
 --- !u!61 &2057162785
 BoxCollider2D:
   m_ObjectHideFlags: 0

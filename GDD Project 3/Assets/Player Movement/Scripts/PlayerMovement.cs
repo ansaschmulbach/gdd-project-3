@@ -97,15 +97,10 @@ public class PlayerMovement : MonoBehaviour
 
 		if (m_canPropulse && !touchingWall || touchingFloor)
 		{
-			if (Input.GetAxisRaw("Horizontal") == 1)
-			{
-				rb.AddForce(Vector2.right * movementSpeed * Time.deltaTime, ForceMode2D.Force);
-			}
 
-			if (Input.GetAxisRaw("Horizontal") == -1)
-			{
-				rb.AddForce(Vector2.left * movementSpeed * Time.deltaTime, ForceMode2D.Force);
-			}
+			float xDir = Input.GetAxisRaw("Horizontal");
+			rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
+			
 		}
 
 		if (touchingFloor || left || right) {
@@ -129,16 +124,18 @@ public class PlayerMovement : MonoBehaviour
 		{
 			jumpTimer = maxJumpRate;
 
-			if (left)
+
+			if (touchingFloor)
+			{
+				rb.AddForce(Vector2.up * jumpSpeed);
+			}
+			else if (left)
             {
-				rb.AddForce(Vector2.right * jumpSpeed);
+	            rb.AddForce(new Vector2(jumpSpeed, jumpSpeed));
 			} else if (right)
             {
-				rb.AddForce(Vector2.left * jumpSpeed);
-
-			}
-
-			rb.AddForce(Vector2.up * jumpSpeed);
+	            rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
+            }
 		}
 	}
 
