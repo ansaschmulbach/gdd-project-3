@@ -25,6 +25,10 @@ public class AudioManager : MonoBehaviour
     [Tooltip("Bass audio manager")]
     private GameObject bass;
 
+    [SerializeField]
+    [Tooltip("Checkpoints at which to re-equalize audio")]
+    private GameObject[] checkpoints;
+
     public static AudioManager instance = null;
     private AudioSource t_src;
     private AudioLowPassFilter t_lp;
@@ -35,7 +39,7 @@ public class AudioManager : MonoBehaviour
     private int trackNumber;
     private float[] trackCutoffs;
     private float lastCutoff;
-    private float transition = 0.3f;
+    private float transition = 0.6f;
 
     private void Awake()
     {
@@ -57,6 +61,7 @@ public class AudioManager : MonoBehaviour
         {
             trackCutoffs[i] = 770f;
         }
+
         t_src = treble.GetComponent<AudioSource>();
         t_lp = treble.GetComponent<AudioLowPassFilter>();
 
@@ -64,20 +69,75 @@ public class AudioManager : MonoBehaviour
         b_lp = bass.GetComponent<AudioLowPassFilter>();
 
         trackNumber = Random.Range(0, playlist.Length);
-        t_src.clip = playlist[trackNumber];
+        t_src.clip = treble_playlist[trackNumber];
+        b_src.clip = bass_playlist[trackNumber];
+
+        t_lp.cutoffFrequency = 1400f;
+        b_lp.cutoffFrequency = 160f;
 
         StartCoroutine(SyncPlayNextTrack(t_src, t_lp, b_src, b_lp));
     }
 
+    /* Public muffle interface. */
+    public void muffle(float f)
+    {
+        float inv = 22000f - f;
+        float log = Mathf.Log(inv, 8);
+        StopCoroutine("TrebleMuffle");
+        StartCoroutine(TrebleMuffle(140f + Mathf.Pow(5, log)));
+        StopCoroutine("BassMuffle");
+        StartCoroutine(BassMuffle(f));
+    }
+
+    public void muffle(GameObject checkpoint)
+    {
+        /* TODO: if PlayerOne, progressively unmuffle treble
+         *       if PlayerTwo, progressively unmuffle bass   */
+
+        for (int i = 0; i < checkpoints.Length; i++)
+        {
+            GameObject c = checkpoints[i];
+            if (checkpoint == c)
+            {
+                muffle(Mathf.Lerp(160f, trackCutoffs[trackNumber], (i + 1f) * (i + 1f) / (checkpoints.Length * checkpoints.Length)));
+            }
+        }
+    }
+
     /* Muffle the track to cutoff frequency f & return
      * the previous cutoff frequency. */
-    public IEnumerator Muffle(float f)
+    private IEnumerator BassMuffle(float f)
     {
         float elapsed = 0;
         while (elapsed < transition)
         {
             elapsed += Time.deltaTime;
             // t_lp.cutoffFrequency = Mathf.Lerp(t_lp.cutoffFrequency, f, elapsed / transition);
+            b_lp.cutoffFrequency = Mathf.Lerp(b_lp.cutoffFrequency, f, elapsed / transition);
+            yield return null;
+        }
+    }
+
+    private IEnumerator TrebleMuffle(float f)
+    {
+        float elapsed = 0;
+        float originalFrequency = t_lp.cutoffFrequency;
+        while (elapsed < transition)
+        {
+            elapsed += Time.deltaTime;
+            t_lp.cutoffFrequency = Mathf.Lerp(originalFrequency, f, elapsed / transition);
+            yield return null;
+        }
+    }
+
+    private IEnumerator Muffle(float f)
+    {
+        float elapsed = 0;
+        float tOriginalFrequency = t_lp.cutoffFrequency;
+        while (elapsed < transition)
+        {
+            elapsed += Time.deltaTime;
+            t_lp.cutoffFrequency = Mathf.Lerp(tOriginalFrequency, f, elapsed / transition);
             b_lp.cutoffFrequency = Mathf.Lerp(b_lp.cutoffFrequency, f, elapsed / transition);
             yield return null;
         }
@@ -133,18 +193,14 @@ public class AudioManager : MonoBehaviour
         {
             while (t_src.isPlaying)
             {
-                if (SceneManager.GetActiveScene().name == "MovementTestScene2")
+                /*if (SceneManager.GetActiveScene().name == "MovementTestScene2")
                 {
                     StartCoroutine(Muffle(
                         Mathf.Min(
                             trackCutoffs[trackNumber], 2000)
                         )
                     );
-                }
-                else
-                {
-                    StartCoroutine(Muffle(500f));
-                }
+                }*/
                 yield return new WaitForSeconds(0.75f);
             }
 
