@@ -41,6 +41,22 @@ public class AudioManager : MonoBehaviour
     private float lastCutoff;
     private float transition = 0.6f;
 
+    public float[] freqs;
+
+    /* DFTs are O(N log(N)) and are costly; using a lower number
+     * of them per second is preferable. On the frames that a DFT
+     * isn't being calculated, we instead smooth out the transition
+     * to the new set of frequencies generated to conserve.
+  
+     * seconds per frame to frames per second   *
+     *              0.1     10                  *
+     *        0.0833...     12                  *
+     *           0.0625     16                  *
+     *             0.05     20                  *
+     *        0.0166...     60                  */
+    const float REFRESH_TIME = 0.0833f;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -55,6 +71,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        freqs = new float[512];
+
         trackCutoffs = new float[playlist.Length];
         trackCutoffs[0] = 20000f;
         for (int i = 1; i < playlist.Length; i++)
@@ -74,6 +92,8 @@ public class AudioManager : MonoBehaviour
 
         t_lp.cutoffFrequency = 1400f;
         b_lp.cutoffFrequency = 160f;
+
+        spectrum();
 
         StartCoroutine(SyncPlayNextTrack(t_src, t_lp, b_src, b_lp));
     }
@@ -128,6 +148,7 @@ public class AudioManager : MonoBehaviour
             t_lp.cutoffFrequency = Mathf.Lerp(originalFrequency, f, elapsed / transition);
             yield return null;
         }
+        // print(maxIndex(Spectrum()));
     }
 
     private IEnumerator Muffle(float f)
@@ -201,7 +222,8 @@ public class AudioManager : MonoBehaviour
                         )
                     );
                 }*/
-                yield return new WaitForSeconds(0.75f);
+                spectrum();
+                yield return new WaitForSeconds(REFRESH_TIME);
             }
 
             StopCoroutine(Muffle(trackCutoffs[trackNumber]));
@@ -225,4 +247,28 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+
+    private float[] spectrum()
+    {
+        t_src.GetSpectrumData(freqs, 0, FFTWindow.Rectangular);
+        return freqs;
+    }
+
+    private int maxIndex(float[] a)
+    {
+        float m = 0;
+        int index = 0;
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (a[i] > m)
+            {
+                m = a[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+
 }
