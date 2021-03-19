@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fba68c36-df10-4f6f-8781-ba42c40f6e79" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MVP Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MVP Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MVPPyramidScheme/Build/MVPPyramidScheme.data.unityweb" beforeDir="false" afterPath="$PROJECT_DIR$/../MVPPyramidScheme/Build/MVPPyramidScheme.data.unityweb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MVPPyramidScheme/Build/MVPPyramidScheme.wasm.code.unityweb" beforeDir="false" afterPath="$PROJECT_DIR$/../MVPPyramidScheme/Build/MVPPyramidScheme.wasm.code.unityweb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MVPPyramidScheme/Build/MVPPyramidScheme.wasm.framework.unityweb" beforeDir="false" afterPath="$PROJECT_DIR$/../MVPPyramidScheme/Build/MVPPyramidScheme.wasm.framework.unityweb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +97,7 @@
       <workItem from="1615003459749" duration="3950000" />
       <workItem from="1615435939077" duration="148000" />
       <workItem from="1615450395235" duration="4576000" />
-      <workItem from="1615517952467" duration="883000" />
+      <workItem from="1615517952467" duration="1457000" />
     </task>
     <servers />
   </component>
