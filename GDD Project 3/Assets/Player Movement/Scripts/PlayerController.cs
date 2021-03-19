@@ -76,5 +76,18 @@ public abstract class PlayerController : MonoBehaviour
     
     #endregion
 
+    #region Health/Death Methods
+
+    public void Die()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            Destroy(players[i]);
+        }
+        Debug.Log("Game Over");
+    }
+    
+    #endregion
 
 }
