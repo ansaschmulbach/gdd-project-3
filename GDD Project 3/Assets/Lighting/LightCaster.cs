@@ -23,6 +23,8 @@ public class LightCaster : MonoBehaviour
         public Vector2 uv;
     }
 
+    private AudioManager audio;
+
     private BoxCollider2D coll;
 
     private BoxCollider2D[] sceneColliders;
@@ -48,6 +50,7 @@ public class LightCaster : MonoBehaviour
         m = lightRays.GetComponent<MeshFilter>().mesh;
         // coll = lightRays.GetComponent<BoxCollider2D>();
         sceneColliders = new BoxCollider2D[sceneObjects.Length];
+        audio = AudioManager.instance;
         for (int i = 0; i < sceneObjects.Length; i++)
         {
             sceneColliders[i] = sceneObjects[i].GetComponent<BoxCollider2D>();
@@ -61,7 +64,7 @@ public class LightCaster : MonoBehaviour
         Vector3 reposition = transform.position; //- (transform.localScale / 2);
         //reposition.Scale(transform.localScale);
         lightRays.transform.position -= reposition;
-        lightRays.transform.position -= new Vector3(0, 0, 1);
+        lightRays.transform.position -= new Vector3(0, 0, 0.01f);
     }
 
     // Update is called once per frame
@@ -81,11 +84,12 @@ public class LightCaster : MonoBehaviour
 
         int h = 0;
 
-        //float randomX = Random.value * offset;
-        //float randomY = Random.value * offset;
+        float random = Random.value;
+        float randomX = offset * (1 + random * audio.freqs[16] * audio.beatProgress);
+        float randomY = offset * (1 + random * 25 * audio.freqs[16] * audio.beatProgress);
 
-        float randomX = offset;
-        float randomY = offset;
+        //float randomX = offset;
+        //float randomY = offset;
 
         Vector3 myLoc = verts[0];
         for (int i = 0; i < sceneObjects.Length; i++)

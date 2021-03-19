@@ -54,7 +54,7 @@ public class Visualizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < n_samples / 6; i++)
+        for (int i = 0; i < n_samples / 16; i++)
         {
             barScales[i].y = Mathf.Lerp(barScales[i].y, height * audio.freqs[i], reactivity);
             bars[i].transform.localScale = barScales[i];

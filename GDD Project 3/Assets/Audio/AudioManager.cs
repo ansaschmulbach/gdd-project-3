@@ -7,15 +7,15 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("List of songs to play in order")]
-    private AudioClip[] playlist;
+    private Track[] playlist;
 
-    [SerializeField]
+    /*[SerializeField]
     [Tooltip("List of songs to play in order")]
     private AudioClip[] treble_playlist;
 
     [SerializeField]
     [Tooltip("List of songs to play in order")]
-    private AudioClip[] bass_playlist;
+    private AudioClip[] bass_playlist;*/
 
     [SerializeField]
     [Tooltip("Treble audio manager")]
@@ -42,6 +42,12 @@ public class AudioManager : MonoBehaviour
     private float transition = 0.6f;
 
     public float[] freqs;
+    public float[] samples;
+    private float[] temp;
+
+    public bool onBeat { get; private set; }
+
+    public int beatProgress { get; private set; }
 
     /* DFTs are O(N log(N)) and are costly; using a lower number
      * of them per second is preferable. On the frames that a DFT
@@ -54,7 +60,7 @@ public class AudioManager : MonoBehaviour
      *           0.0625     16                  *
      *             0.05     20                  *
      *        0.0166...     60                  */
-    const float REFRESH_TIME = 0.0833f;
+    public const float REFRESH_TIME = 0.0833f;
 
 
     private void Awake()
@@ -71,7 +77,9 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        freqs = new float[512];
+        freqs = new float[1024];
+        samples = new float[16];
+        temp = new float[16];
 
         trackCutoffs = new float[playlist.Length];
         trackCutoffs[0] = 20000f;
@@ -80,6 +88,8 @@ public class AudioManager : MonoBehaviour
             trackCutoffs[i] = 770f;
         }
 
+        onBeat = true;
+
         t_src = treble.GetComponent<AudioSource>();
         t_lp = treble.GetComponent<AudioLowPassFilter>();
 
@@ -87,15 +97,17 @@ public class AudioManager : MonoBehaviour
         b_lp = bass.GetComponent<AudioLowPassFilter>();
 
         trackNumber = Random.Range(0, playlist.Length);
-        t_src.clip = treble_playlist[trackNumber];
-        b_src.clip = bass_playlist[trackNumber];
+        t_src.clip = playlist[trackNumber].Treble;
+        b_src.clip = playlist[trackNumber].Bass;
 
         t_lp.cutoffFrequency = 1400f;
         b_lp.cutoffFrequency = 160f;
 
         spectrum();
 
-        StartCoroutine(SyncPlayNextTrack(t_src, t_lp, b_src, b_lp));
+        StartCoroutine(SyncPlayNextTrack(t_src, t_lp, playlist[trackNumber]));
+        StartCoroutine(RefreshSpectrum());
+
     }
 
     /* Public muffle interface. */
@@ -104,7 +116,7 @@ public class AudioManager : MonoBehaviour
         float inv = 22000f - f;
         float log = Mathf.Log(inv, 8);
         StopCoroutine("TrebleMuffle");
-        StartCoroutine(TrebleMuffle(140f + Mathf.Pow(5, log)));
+        StartCoroutine(TrebleMuffle(140f + Mathf.Pow(6, log)));
         StopCoroutine("BassMuffle");
         StartCoroutine(BassMuffle(f));
     }
@@ -148,7 +160,6 @@ public class AudioManager : MonoBehaviour
             t_lp.cutoffFrequency = Mathf.Lerp(originalFrequency, f, elapsed / transition);
             yield return null;
         }
-        // print(maxIndex(Spectrum()));
     }
 
     private IEnumerator Muffle(float f)
@@ -202,31 +213,48 @@ public class AudioManager : MonoBehaviour
 
             /* Reset lowpass filter */
             lp.cutoffFrequency = trackCutoffs[trackNumber];
-            src.clip = playlist[trackNumber];
+            src.clip = playlist[trackNumber].Treble;
         }
 
     }
 
     private IEnumerator SyncPlayNextTrack(AudioSource t_src, AudioLowPassFilter t_lp, 
-                                            AudioSource b_src, AudioLowPassFilter b_lp)
+                                            Track t)
     {
         while (true)
         {
+
+            double elapsed = 0;
+            double seconds_per_beat = 60d / t.BPM;
+
+            t_src.Play();
+            b_src.Play();
+
+            /* Wait until the the first beat of the track plays. */
+            while (elapsed < t.Offset)
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            elapsed = 0;
+
+            /* While the main section of the track plays, */
             while (t_src.isPlaying)
             {
-                /*if (SceneManager.GetActiveScene().name == "MovementTestScene2")
+                elapsed += Time.deltaTime;
+
+                if (elapsed > seconds_per_beat)
                 {
-                    StartCoroutine(Muffle(
-                        Mathf.Min(
-                            trackCutoffs[trackNumber], 2000)
-                        )
-                    );
-                }*/
-                spectrum();
-                yield return new WaitForSeconds(REFRESH_TIME);
+                    onBeat = !onBeat;
+                    beatProgress = beatProgress ^ 1;
+                    elapsed -= seconds_per_beat;
+                }
+
+                yield return null;
             }
 
             StopCoroutine(Muffle(trackCutoffs[trackNumber]));
+
             trackNumber += 1;
 
             /* Loop to start */
@@ -235,23 +263,31 @@ public class AudioManager : MonoBehaviour
                 trackNumber = 0;
             }
 
-            t_src.Play();
-            b_src.Play();
-
-            /* Reset lowpass filter */
-            //t_lp.cutoffFrequency = trackCutoffs[trackNumber];
-            //b_lp.cutoffFrequency = trackCutoffs[trackNumber];
-
-            t_src.clip = treble_playlist[trackNumber];
-            b_src.clip = bass_playlist[trackNumber];
+            t_src.clip = playlist[trackNumber].Treble;
+            b_src.clip = playlist[trackNumber].Bass;
         }
 
+    }
+
+    private IEnumerator RefreshSpectrum()
+    {
+        while (t_src.isPlaying)
+        {
+            spectrum();
+            yield return new WaitForSeconds(REFRESH_TIME);
+        }
     }
 
 
     private float[] spectrum()
     {
         t_src.GetSpectrumData(freqs, 0, FFTWindow.Rectangular);
+        t_src.GetOutputData(temp, 0);
+        t_src.GetOutputData(samples, 1);
+        for (int i = 0; i < samples.Length; i++)
+        {
+            samples[i] += temp[i];
+        }
         return freqs;
     }
 

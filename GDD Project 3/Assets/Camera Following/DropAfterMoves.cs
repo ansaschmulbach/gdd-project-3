@@ -107,7 +107,7 @@ public class DropAfterMoves : MonoBehaviour
     private IEnumerator Drop()
     {
         yield return new WaitForSeconds(m_DropDelay);
-        GetComponent<Collider2D>().enabled = false;
+        //GetComponent<Collider2D>().enabled = false;
         this.p_RB.constraints = RigidbodyConstraints2D.None;  
         this.p_RB.velocity = Vector2.down;
     }

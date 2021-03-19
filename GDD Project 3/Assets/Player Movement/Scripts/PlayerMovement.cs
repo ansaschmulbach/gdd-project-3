@@ -39,7 +39,12 @@ public class PlayerMovement : MonoBehaviour
 	
 	/**If you're touching a wall, you can't propulse*/
 	private bool touchingWall;
-	
+
+	private Vector2 jumpVector;
+	private Vector2 pushVector;
+
+	private Vector2 vel;
+
 	#endregion
 
 	#region Propulsion variables
@@ -82,6 +87,9 @@ public class PlayerMovement : MonoBehaviour
     {
 		rb = GetComponent<Rigidbody2D>();
 		jumpTimer = 0;
+		jumpVector = new Vector2(0, jumpSpeed / 36);
+		pushVector = new Vector2(jumpSpeed / 32, 0);
+		vel = Vector2.zero;
 		left = false;
 		right = false;
 	}
@@ -89,17 +97,31 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		//rb.velocity *= 0.99f;
 
 		if (!isActive)
 		{
 			return;
 		}
 
-		if (m_canPropulse && !touchingWall || touchingFloor)
+		if (m_canPropulse || touchingFloor)
 		{
 
 			float xDir = Input.GetAxisRaw("Horizontal");
-			rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
+			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
+			xDir *= 0.2f;
+			/*if (!touchingFloor)
+            {
+				xDir = xDir * 0.75f;
+				
+            } */
+			if (left || right)
+			{
+				xDir = 0;
+			}
+			vel = rb.velocity;
+			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed, 0.02f);
+			rb.velocity = vel;
 			
 		}
 
@@ -127,15 +149,20 @@ public class PlayerMovement : MonoBehaviour
 
 			if (touchingFloor)
 			{
-				rb.AddForce(Vector2.up * jumpSpeed);
+				// rb.AddForce(Vector2.up * jumpSpeed);
+				rb.velocity += jumpVector;
 			}
 			else if (left)
             {
-	            rb.AddForce(new Vector2(jumpSpeed, jumpSpeed));
-			} else if (right)
+				// rb.AddForce(new Vector2(jumpSpeed, jumpSpeed));
+				rb.velocity += jumpVector + pushVector;
+
+			}
+			else if (right)
             {
-	            rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
-            }
+	            // rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
+				rb.velocity += jumpVector - pushVector;
+			}
 		}
 	}
 
