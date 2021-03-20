@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fba68c36-df10-4f6f-8781-ba42c40f6e79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level 2/KillPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level 2/KillPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level 2/MVP Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level 2/MVP Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="fba68c36-df10-4f6f-8781-ba42c40f6e79" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +95,7 @@
       <workItem from="1615450395235" duration="4576000" />
       <workItem from="1615517952467" duration="1457000" />
       <workItem from="1616123638331" duration="5294000" />
-      <workItem from="1616204843041" duration="633000" />
+      <workItem from="1616204843041" duration="920000" />
     </task>
     <servers />
   </component>
