@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class PlayerController : MonoBehaviour
 {
@@ -76,5 +77,19 @@ public abstract class PlayerController : MonoBehaviour
     
     #endregion
 
+    #region Health/Death Methods
+
+    public void Die()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            Destroy(players[i]);
+        }
+        Debug.Log("Game Over");
+        SceneManager.LoadScene("MVP Level 1");
+    }
+    
+    #endregion
 
 }
