@@ -6,6 +6,9 @@
       <e p="Assets" t="Include">
         <e p="Audio" t="Include">
           <e p="AudioManager.cs" t="Include" />
+          <e p="CheckpointScript.cs" t="Include" />
+          <e p="NewBehaviourScript.cs" t="Include" />
+          <e p="Visualizer.cs" t="Include" />
         </e>
         <e p="Camera Following" t="Include">
           <e p="CameraFollow.cs" t="Include" />
@@ -16,6 +19,9 @@
           <e p="KillPlayer.cs" t="Include" />
           <e p="RotatePlatform.cs" t="Include" />
           <e p="SlidePlatform.cs" t="Include" />
+        </e>
+        <e p="Lighting" t="Include">
+          <e p="LightCaster.cs" t="Include" />
         </e>
         <e p="Player Movement" t="Include">
           <e p="Scripts" t="Include">

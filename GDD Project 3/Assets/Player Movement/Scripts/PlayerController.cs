@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class PlayerController : MonoBehaviour
 {
@@ -86,6 +87,7 @@ public abstract class PlayerController : MonoBehaviour
             Destroy(players[i]);
         }
         Debug.Log("Game Over");
+        SceneManager.LoadScene("MVP Level 1");
     }
     
     #endregion

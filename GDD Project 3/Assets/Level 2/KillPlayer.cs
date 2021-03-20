@@ -7,22 +7,25 @@ public class KillPlayer : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Player"))
+        Debug.Log(other.gameObject);
+        Debug.Log(other.gameObject.tag);
+        Debug.Log(other.gameObject.transform.parent);
+        if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("hello hello");
             PlayerController pc = other.gameObject.GetComponent<PlayerController>();
-            Debug.Log(other.gameObject);
             if (pc.enabled)
             {
                 pc.Die();     
             }
         }
-        else if (other.gameObject.transform.parent.CompareTag("Player"))
-        {
-            PlayerController pc = other.transform.parent.GetComponent<PlayerController>();
-            if (pc.enabled)
-            {
-                pc.Die();
-            }
-        }
+        // else if (other.gameObject.transform.parent.CompareTag("Player"))
+        // {
+        //     PlayerController pc = other.transform.parent.GetComponent<PlayerController>();
+        //     if (pc.enabled)
+        //     {
+        //         pc.Die();
+        //     }
+        // }
     }
 }
