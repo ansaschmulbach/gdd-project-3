@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playlist:
-  - {fileID: 1882163360}
+  - {fileID: 1370860150}
   treble: {fileID: 1221048107}
   bass: {fileID: 836440460}
   checkpoints:
