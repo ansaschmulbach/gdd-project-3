@@ -115,11 +115,13 @@ public class PlayerMovement : MonoBehaviour
 				xDir = xDir * 0.75f;
 				
             } */
+			vel = rb.velocity;
+
 			if (left || right)
 			{
-				xDir = 0;
+				xDir *= 0.2f;
+				vel.y = Mathf.Max(-0.4f, vel.y);
 			}
-			vel = rb.velocity;
 			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed, 0.02f);
 			rb.velocity = vel;
 			

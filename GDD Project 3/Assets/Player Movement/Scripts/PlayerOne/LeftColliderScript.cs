@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class LeftColliderScript : MonoBehaviour
 {
-	/*
-	// Returns whether the obj is a wall
-	bool isWall(GameObject obj)
-	{
-		return obj.layer == LayerMask.NameToLayer("Floor");
-	}*/
+	PlayerMovement pm;
+
+	void Start()
+    {
+		pm = GetComponentInParent<PlayerMovement>();
+	}
 
 	void OnCollisionEnter2D(Collision2D c)
 	{
-		GetComponentInParent<PlayerMovement>().leftContact = true;
+		pm.leftContact = true;
 	}
 
 	void OnCollisionExit2D(Collision2D c)
 	{
-		GetComponentInParent<PlayerMovement>().leftContact = false;
+		StartCoroutine(DelayedRelease());
+	}
+
+	private IEnumerator DelayedRelease()
+    {
+		yield return new WaitForSeconds(0.2f);
+		pm.leftContact = false;
 	}
 }

@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class RightColliderScript : MonoBehaviour
 {
-	// Returns whether the obj is a wall
-	bool isWall(GameObject obj)
+	PlayerMovement pm;
+
+	void Start()
 	{
-		return obj.layer == LayerMask.NameToLayer("Wall");
+		pm = GetComponentInParent<PlayerMovement>();
 	}
 
 	void OnCollisionEnter2D(Collision2D c)
 	{
-		GetComponentInParent<PlayerMovement>().rightContact = true;
+		pm.rightContact = true;
 	}
 
 	void OnCollisionExit2D(Collision2D c)
 	{
-		GetComponentInParent<PlayerMovement>().rightContact = false;
+		StartCoroutine(DelayedRelease());
+	}
+
+	private IEnumerator DelayedRelease()
+	{
+		yield return new WaitForSeconds(0.2f);
+		pm.rightContact = false;
 	}
 }
