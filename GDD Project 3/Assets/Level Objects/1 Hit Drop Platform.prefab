@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8221088986594745187}
   - component: {fileID: 8033319467266642183}
   m_Layer: 0
-  m_Name: Drop Platform 1
+  m_Name: 1 Hit Drop Platform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

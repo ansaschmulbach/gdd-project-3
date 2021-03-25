@@ -85,8 +85,8 @@ public class LightCaster : MonoBehaviour
         int h = 0;
 
         float random = Random.value;
-        float randomX = offset * (1 + random * audio.freqs[16] * audio.beatProgress);
-        float randomY = offset * (1 + random * 25 * audio.freqs[16] * audio.beatProgress);
+        float randomX = offset * (1f + random * audio.freqs[16] * audio.beatProgress);
+        float randomY = offset * (1f + random * 25 * audio.freqs[16] * audio.beatProgress);
 
         //float randomX = offset;
         //float randomY = offset;

@@ -23,7 +23,7 @@ public class LeftColliderScript : MonoBehaviour
 
 	private IEnumerator DelayedRelease()
     {
-		yield return new WaitForSeconds(0.2f);
+		yield return new WaitForSeconds(0.133f);
 		pm.leftContact = false;
 	}
 }

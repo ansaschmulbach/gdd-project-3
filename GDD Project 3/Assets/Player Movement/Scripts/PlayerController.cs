@@ -6,7 +6,6 @@ public abstract class PlayerController : MonoBehaviour
 {
 
     #region Inspector Variables
-
     #endregion
     
     #region Cached Values
@@ -16,6 +15,7 @@ public abstract class PlayerController : MonoBehaviour
     private Collider2D cr_feet_col;
     private Collider2D cr_left_col;
     private Collider2D cr_right_col;
+    private Vector3 initial_position;
 
     #endregion
 
@@ -26,6 +26,7 @@ public abstract class PlayerController : MonoBehaviour
         cr_pm = GetComponent<PlayerMovement>();
         cr_col = GetComponent<Collider2D>();
         cr_feet_col = GetComponentInChildren<FeetController>().GetComponent<BoxCollider2D>();
+        initial_position = transform.position;
         if (cr_pm.canWallJump)
         {
             cr_left_col = GetComponentInChildren<LeftColliderScript>().GetComponent<BoxCollider2D>();
@@ -87,7 +88,7 @@ public abstract class PlayerController : MonoBehaviour
             Destroy(players[i]);
         }
         Debug.Log("Game Over");
-        SceneManager.LoadScene("MVP Level 1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
     #endregion

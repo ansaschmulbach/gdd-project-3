@@ -56,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
 		set { m_canPropulse = value; }
 	}
 
+	/* Player controller. */
+	private PlayerController pc;
+
 	/* Whether the player is touching a wall on their left. */
 	private bool left;
 	public bool leftContact
@@ -86,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
+		pc = GetComponent<PlayerController>();
 		jumpTimer = 0;
 		jumpVector = new Vector2(0, jumpSpeed / 36);
 		pushVector = new Vector2(jumpSpeed / 32, 0);
@@ -119,6 +123,10 @@ public class PlayerMovement : MonoBehaviour
 
 			if (left || right)
 			{
+				if (left && right && touchingFloor)
+                {
+					//pc.Die();
+                }
 				xDir *= 0.2f;
 				vel.y = Mathf.Max(-0.4f, vel.y);
 			}
@@ -172,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Collision Methods
 
-	private void OnCollisionEnter2D(Collision2D other)
+	/*private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.collider.CompareTag("Wall"))
 		{
@@ -186,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			this.touchingWall = false;
 		}
-	}
+	}*/
 
 	#endregion
 }
