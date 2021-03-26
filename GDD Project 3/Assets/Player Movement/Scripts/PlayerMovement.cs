@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool touchingFloor;
 
 	[SerializeField] [Tooltip("Can you wall jump?")]
-	public bool canWallJump = false;
+	public bool canWallJump;
 
 	[SerializeField]
 	[Tooltip("Jump speed")]

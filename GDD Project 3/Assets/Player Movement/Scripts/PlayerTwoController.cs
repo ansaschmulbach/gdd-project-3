@@ -22,17 +22,17 @@ public class PlayerTwoController : PlayerController
 			if (collision.gameObject.TryGetComponent(out PlayerController pc))
 			{
 				Debug.Log("setting disabled");
-				pc.SetDisabled();
 				this.SetEnabled();
+				pc.SetDisabled();
 			}
 		} 
 		else if (collision.gameObject.CompareTag("LeftRight"))
 		{
 			PlayerController pc = collision.collider.GetComponentInParent<PlayerController>();
-			pc.SetDisabled();
 			this.SetEnabled();
-			
+			pc.SetDisabled();
 		}
+
 	}
 	
 }

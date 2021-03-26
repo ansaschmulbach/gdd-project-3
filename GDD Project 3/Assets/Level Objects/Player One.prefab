@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 100
   touchingFloor: 0
-  canWallJump: 0
+  canWallJump: 1
   jumpSpeed: 500
   isActive: 1
   maxJumpRate: 0.6

@@ -31,6 +31,16 @@ public abstract class PlayerController : MonoBehaviour
         {
             cr_left_col = GetComponentInChildren<LeftColliderScript>().GetComponent<BoxCollider2D>();
             cr_right_col = GetComponentInChildren<RightColliderScript>().GetComponent<BoxCollider2D>();
+            print("set left/right colliders");
+
+            if (cr_left_col)
+            {
+                print("found left");
+            }
+            if (cr_right_col)
+            {
+                print("found right");
+            }
         }
         SetStartState();
     }
@@ -68,6 +78,17 @@ public abstract class PlayerController : MonoBehaviour
         {
             cr_left_col.enabled = false;
             cr_right_col.enabled = false;
+        }
+        ResetEQ();
+
+    }
+
+    private void ResetEQ()
+    {
+        AudioManager am = AudioManager.instance;
+        if (am)
+        {
+            am.muffle(21000f);
         }
     }
 

@@ -129,7 +129,7 @@ public class DisappearPlatform : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        print("Triggered");
+        // print("Triggered");
         if (deadlyWhenInactive && deadly && (audioManager.onBeat ^ onBeat) && other.gameObject.CompareTag("Player"))
         {
             PlayerController pc = other.gameObject.GetComponent<PlayerController>();

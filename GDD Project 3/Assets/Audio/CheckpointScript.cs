@@ -44,17 +44,46 @@ public class CheckpointScript : MonoBehaviour
     {
         if (c.gameObject.CompareTag("Player"))
         {
-            print("Checkpoint");
-            if (!activated)
+            print("Triggered");
+            PlayerMovement pm = GetPlayerMovement(c);
+            if (!pm) return;
+
+            if (!activated && pm.canWallJump)
             {
                 activated = true;
+                StopCoroutine(Pulse());
+                StartCoroutine(Pulse());
+            } else if (activated && !pm.canWallJump)
+            {
+                activated = false;
+                StopCoroutine(Pulse());
                 StartCoroutine(Pulse());
             }
-            
+
             // audioManager.muffle(3000f);
-            audioManager.muffle(gameObject);
+            audioManager.muffle(gameObject, pm.canWallJump);
         }
 
+    }
+
+    private PlayerMovement GetPlayerMovement(Collider2D c)
+    {
+        PlayerMovement pm_child = c.gameObject.GetComponent<PlayerMovement>();
+        PlayerMovement pm_parent = c.gameObject.GetComponentInParent<PlayerMovement>();
+        PlayerMovement pm = null;
+        if (pm_child != null)
+        {
+            pm = pm_child;
+        }
+        else if (pm_parent != null)
+        {
+            pm = pm_parent;
+        }
+        else
+        {
+            return null;
+        }
+        return pm;
     }
 
     private float Sum(float[] f)

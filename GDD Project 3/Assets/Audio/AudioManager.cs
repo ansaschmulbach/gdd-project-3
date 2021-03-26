@@ -123,8 +123,7 @@ public class AudioManager : MonoBehaviour
 
     public void muffle(GameObject checkpoint)
     {
-        /* TODO: if PlayerOne, progressively unmuffle treble
-         *       if PlayerTwo, progressively unmuffle bass   */
+        /* Generic muffle. */
 
         for (int i = 0; i < checkpoints.Length; i++)
         {
@@ -132,6 +131,27 @@ public class AudioManager : MonoBehaviour
             if (checkpoint == c)
             {
                 muffle(Mathf.Lerp(160f, trackCutoffs[trackNumber], (i + 1f) * (i + 1f) / (checkpoints.Length * checkpoints.Length)));
+            }
+        }
+    }
+
+    public void muffle(GameObject checkpoint, bool playerOne)
+    {
+        /* if PlayerOne, progressively unmuffle bass
+         * if PlayerTwo, progressively unmuffle treble   */
+
+        for (int i = 0; i < checkpoints.Length; i++)
+        {
+            GameObject c = checkpoints[i];
+            if (checkpoint == c)
+            {
+                if (playerOne)
+                {
+                    StartCoroutine(BassMuffle(Mathf.Lerp(170f, trackCutoffs[trackNumber], (i + 1f) / (1f * checkpoints.Length))));
+                } else
+                {
+                    StartCoroutine(TrebleMuffle(Mathf.Lerp(trackCutoffs[trackNumber], 500f, (i + 1f) / (1f * checkpoints.Length))));
+                }
             }
         }
     }
