@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 	[Tooltip("Can move")]
 	public bool isActive = true;
 
+	[SerializeField] [Tooltip("Can Double Jump?")]
+	private bool canDoubleJump;
+	
 	#endregion
 
 	#region Jumping variables
@@ -44,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 pushVector;
 
 	private Vector2 vel;
+
+	private bool hasDoubleJumped;
 
 	#endregion
 
@@ -85,10 +90,10 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Unity methods
 
-	// Start is called before the first frame update
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
+		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 		pc = GetComponent<PlayerController>();
 		jumpTimer = 0;
 		jumpVector = new Vector2(0, jumpSpeed / 36);
@@ -98,10 +103,8 @@ public class PlayerMovement : MonoBehaviour
 		right = false;
 	}
 
-	// Update is called once per frame
 	void Update()
     {
-		//rb.velocity *= 0.99f;
 
 		if (!isActive)
 		{
@@ -112,13 +115,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 
 			float xDir = Input.GetAxisRaw("Horizontal");
-			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
 			xDir *= 0.2f;
-			/*if (!touchingFloor)
-            {
-				xDir = xDir * 0.75f;
-				
-            } */
 			vel = rb.velocity;
 
 			if (left || right)
@@ -135,11 +132,9 @@ public class PlayerMovement : MonoBehaviour
 			
 		}
 
-		if (touchingFloor || left || right) {
-			if (Input.GetKey(KeyCode.Space))
-			{
-				Jump();
-			}
+		if (Input.GetKey(KeyCode.Space))
+		{
+			Jump();
 		}
 
 		jumpTimer = Mathf.Max(0f, jumpTimer - Time.deltaTime);
@@ -172,6 +167,11 @@ public class PlayerMovement : MonoBehaviour
             {
 	            // rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector - pushVector;
+			} 
+			else if (!hasDoubleJumped && canDoubleJump)
+			{
+				rb.velocity += jumpVector;
+				hasDoubleJumped = true;
 			}
 		}
 	}
@@ -180,21 +180,21 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Collision Methods
 
-	/*private void OnCollisionEnter2D(Collision2D other)
+	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.collider.CompareTag("Wall"))
+		if (other.collider.CompareTag("Floor"))
 		{
-			this.touchingWall = true;
+			hasDoubleJumped = false;
 		}
 	}
 
-	private void OnCollisionExit2D(Collision2D other)
-	{
-		if (other.collider.CompareTag("Wall"))
-		{
-			this.touchingWall = false;
-		}
-	}*/
+	// private void OnCollisionExit2D(Collision2D other)
+	// {
+	// 	if (other.collider.CompareTag("Wall")) 
+	// 	{
+	// 		
+	// 	}
+	// }
 
 	#endregion
 }

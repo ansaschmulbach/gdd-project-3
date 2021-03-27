@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dbdbccd5837d544a5a92c6a06af8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 4
+  order: 0
 --- !u!61 &77015753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dbdbccd5837d544a5a92c6a06af8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 3
+  order: 0
 --- !u!61 &606254140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dbdbccd5837d544a5a92c6a06af8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 1
+  order: 0
 --- !u!61 &1451411297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2758,7 +2758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dbdbccd5837d544a5a92c6a06af8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 2
+  order: 0
 --- !u!61 &2034024990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3190,6 +3190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145908667165357182, guid: 2a3dda438aceac64aa652be79360ec11,
+        type: 3}
+      propertyPath: m_DampTime
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5145908667165357183, guid: 2a3dda438aceac64aa652be79360ec11,
         type: 3}
