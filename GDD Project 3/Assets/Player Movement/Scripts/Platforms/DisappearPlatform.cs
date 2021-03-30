@@ -127,16 +127,35 @@ public class DisappearPlatform : MonoBehaviour
         sr.color = disabledColor;
     }
 
+    private PlayerController GetPlayerController(Collider2D c)
+    {
+        PlayerController pm_child = c.gameObject.GetComponent<PlayerController>();
+        PlayerController pm_parent = c.gameObject.GetComponentInParent<PlayerController>();
+        PlayerController pm = null;
+        if (pm_child != null)
+        {
+            pm = pm_child;
+        }
+        else if (pm_parent != null)
+        {
+            pm = pm_parent;
+        }
+        else
+        {
+            return null;
+        }
+        return pm;
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
-        // print("Triggered");
-        if (deadlyWhenInactive && deadly && (audioManager.onBeat ^ onBeat) && other.gameObject.CompareTag("Player"))
+        if (deadlyWhenInactive && deadly && other.gameObject.CompareTag("Player"))
         {
-            PlayerController pc = other.gameObject.GetComponent<PlayerController>();
-            if (!pc)
-            {
-                pc = other.gameObject.GetComponentInParent<PlayerController>();
-            }
+            print("Triggered");
+
+            PlayerController pc = GetPlayerController(other.collider);
+            if (!pc) return;
+
             pc.Die();
         }
     }

@@ -77,9 +77,11 @@ public class PlayerMovement : MonoBehaviour
 
 	#endregion
 
-	#region Rigidbody stuff
+	#region Player Components
 
 	private Rigidbody2D rb;
+
+	private AudioSource asrc;
 
 	#endregion
 
@@ -90,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
     {
 		rb = GetComponent<Rigidbody2D>();
 		pc = GetComponent<PlayerController>();
+		asrc = GetComponent<AudioSource>();
+		asrc.playOnAwake = false;
 		jumpTimer = 0;
 		jumpVector = new Vector2(0, jumpSpeed / 36);
 		pushVector = new Vector2(jumpSpeed / 32, 0);
@@ -173,6 +177,8 @@ public class PlayerMovement : MonoBehaviour
 	            // rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector - pushVector;
 			}
+
+			asrc.Play();
 		}
 	}
 

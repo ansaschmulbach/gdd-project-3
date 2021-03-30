@@ -7,6 +7,8 @@ public class CheckpointScript : MonoBehaviour
     /* Global audio manager. */
     private AudioManager audioManager;
 
+    private AudioSource audioSource;
+
     private bool activated;
 
     private Vector3 size;
@@ -30,6 +32,8 @@ public class CheckpointScript : MonoBehaviour
         audioManager = AudioManager.instance;
         audioManager.checkpoints[order] = gameObject;
 
+        audioSource = GetComponent<AudioSource>();
+
         /* Store the original position & scale of the checkpoint to help it bob in place. */
         size = transform.localScale;
         height = size.y / 2;
@@ -51,11 +55,13 @@ public class CheckpointScript : MonoBehaviour
             if (!activated && pm.canWallJump)
             {
                 activated = true;
+                audioSource.Play();
                 StopCoroutine(Pulse());
                 StartCoroutine(Pulse());
             } else if (activated && !pm.canWallJump)
             {
                 activated = false;
+                audioSource.Play();
                 StopCoroutine(Pulse());
                 StartCoroutine(Pulse());
             }
