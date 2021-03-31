@@ -170,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
 			} 
 			else if (!hasDoubleJumped && canDoubleJump)
 			{
+			    rb.velocity = new Vector2(rb.velocity.x, 0);
 				rb.velocity += jumpVector;
 				hasDoubleJumped = true;
 			}
