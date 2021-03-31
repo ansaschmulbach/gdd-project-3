@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class RhythmPlatform : MonoBehaviour
 {
-    /* Global audio manager. */
-    [SerializeField]
-    [Tooltip("Music controller.")]
-    private GameObject musicController;
 
     [SerializeField]
     [Tooltip("How many times taller this platform gets.")]
@@ -31,12 +27,14 @@ public class RhythmPlatform : MonoBehaviour
 
     private bool lastBeat;
 
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = musicController.GetComponent<AudioManager>();
+        audioManager = AudioManager.instance;
         contractSize = transform.localScale;
-        height = contractSize.y / 200;
+        height = contractSize.y / 200; // Divide by two to center, divide by 100 because we're using a 1x1 texture.
 
         expandSize = new Vector3(contractSize.x, expandedSize * contractSize.y);
 
@@ -55,7 +53,7 @@ public class RhythmPlatform : MonoBehaviour
             if (audioManager.onBeat)
             {
                 StopCoroutine("Contract");
-                StartCoroutine(Expand(expandSize));
+                StartCoroutine(Expand());
             }
             else
             {
@@ -67,7 +65,7 @@ public class RhythmPlatform : MonoBehaviour
 
     }
 
-    private IEnumerator Expand(Vector3 newSize)
+    private IEnumerator Expand()
     {
         float elapsed = 0f;
 
@@ -75,8 +73,14 @@ public class RhythmPlatform : MonoBehaviour
         {
             elapsed += Time.deltaTime;
 
-            transform.localScale = Vector3.Lerp(transform.localScale, newSize, transitionSpeed);
-            offset.y = height - transform.localScale.y / 200;
+            Vector3 newScale = Vector3.Lerp(transform.localScale, expandSize, transitionSpeed);
+            offset.y = height - newScale.y / 200;
+            if (player)
+            {
+                player.transform.position = new Vector3(player.transform.position.x, transform.localPosition.y - offset.y + player.transform.localScale.y / 2);
+            }
+            transform.localScale = newScale;
+
             transform.localPosition = loc - offset;
             yield return null;
         }
@@ -95,4 +99,47 @@ public class RhythmPlatform : MonoBehaviour
             yield return null;
         }
     }
+
+    #region Collision Methods
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        PlayerMovement pm_child = other.collider.GetComponent<PlayerMovement>();
+        PlayerMovement pm_parent = other.collider.GetComponentInParent<PlayerMovement>();
+        PlayerMovement pm = null;
+        if (pm_child != null)
+        {
+            pm = pm_child;
+        }
+        else if (pm_parent != null)
+        {
+            pm = pm_parent;
+        }
+        else
+        {
+            return;
+        }
+
+        if (pm.isActive)
+        {
+            Debug.Log(other.gameObject);
+            player = pm.gameObject;
+
+        }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            player = null;
+        }
+
+    }
+
+    #endregion
+
 }

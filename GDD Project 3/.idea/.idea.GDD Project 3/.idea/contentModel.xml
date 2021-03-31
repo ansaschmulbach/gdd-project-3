@@ -8,7 +8,9 @@
           <e p="AudioManager.cs" t="Include" />
           <e p="CheckpointScript.cs" t="Include" />
           <e p="NewBehaviourScript.cs" t="Include" />
+          <e p="Track.cs" t="Include" />
           <e p="Visualizer.cs" t="Include" />
+          <e p="Visualizer2.cs" t="Include" />
         </e>
         <e p="Camera Following" t="Include">
           <e p="CameraFollow.cs" t="Include" />
@@ -26,6 +28,10 @@
         <e p="Player Movement" t="Include">
           <e p="Scripts" t="Include">
             <e p="FeetController.cs" t="Include" />
+            <e p="Platforms" t="Include">
+              <e p="DisappearPlatform.cs" t="Include" />
+              <e p="RhythmPlatform.cs" t="Include" />
+            </e>
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerOne" t="Include">

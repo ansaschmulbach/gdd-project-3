@@ -5,10 +5,6 @@ using UnityEngine;
 public class CheckpointScript : MonoBehaviour
 {
     /* Global audio manager. */
-    [SerializeField]
-    [Tooltip("Music controller.")]
-    private GameObject musicController;
-
     private AudioManager audioManager;
 
     private bool activated;
@@ -21,10 +17,20 @@ public class CheckpointScript : MonoBehaviour
 
     private float height;
 
+    [SerializeField] [Tooltip("Which checkpoint is this? (zero-indexed)")]
+    private int order;
+
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = musicController.GetComponent<AudioManager>();
+        /* Add this checkpoint to the checkpoint list.
+         * If not done, the checkpoint can't be interacted
+         * with after the player dies due to a null pointer 
+         * exception. */
+        audioManager = AudioManager.instance;
+        audioManager.checkpoints[order] = gameObject;
+
+        /* Store the original position & scale of the checkpoint to help it bob in place. */
         size = transform.localScale;
         height = size.y / 2;
 
@@ -38,17 +44,46 @@ public class CheckpointScript : MonoBehaviour
     {
         if (c.gameObject.CompareTag("Player"))
         {
-            print("Checkpoint");
-            if (!activated)
+            print("Triggered");
+            PlayerMovement pm = GetPlayerMovement(c);
+            if (!pm) return;
+
+            if (!activated && pm.canWallJump)
             {
                 activated = true;
+                StopCoroutine(Pulse());
+                StartCoroutine(Pulse());
+            } else if (activated && !pm.canWallJump)
+            {
+                activated = false;
+                StopCoroutine(Pulse());
                 StartCoroutine(Pulse());
             }
-            
+
             // audioManager.muffle(3000f);
-            audioManager.muffle(gameObject);
+            audioManager.muffle(gameObject, pm.canWallJump);
         }
 
+    }
+
+    private PlayerMovement GetPlayerMovement(Collider2D c)
+    {
+        PlayerMovement pm_child = c.gameObject.GetComponent<PlayerMovement>();
+        PlayerMovement pm_parent = c.gameObject.GetComponentInParent<PlayerMovement>();
+        PlayerMovement pm = null;
+        if (pm_child != null)
+        {
+            pm = pm_child;
+        }
+        else if (pm_parent != null)
+        {
+            pm = pm_parent;
+        }
+        else
+        {
+            return null;
+        }
+        return pm;
     }
 
     private float Sum(float[] f)

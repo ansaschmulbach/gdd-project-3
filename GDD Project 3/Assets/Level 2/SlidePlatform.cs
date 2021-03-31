@@ -12,7 +12,11 @@ public class SlidePlatform : MonoBehaviour
     
     [SerializeField] [Tooltip("The speed the platform should move at")]
     private float m_Speed;
-    
+
+    [SerializeField]
+    [Tooltip("Time before the platform begins moving")]
+    private float offset;
+
     #endregion
 
     #region Private variables
@@ -20,6 +24,7 @@ public class SlidePlatform : MonoBehaviour
     private Vector3 p_OriginalPos;
     private Vector3 p_FinalPos;
     private Direction p_Direction;
+    private float halfDistance;
     
     #endregion
 
@@ -38,15 +43,22 @@ public class SlidePlatform : MonoBehaviour
         p_OriginalPos = this.transform.position;
         p_FinalPos = p_OriginalPos + m_Displacement;
         this.p_Direction = Direction.Forward;
+        halfDistance = m_Displacement.magnitude / 2;
     }
 
     void Update()
     {
-        this.transform.position += m_Displacement * ((int)p_Direction * m_Speed * Time.deltaTime);
-        if ((this.transform.position - p_FinalPos).sqrMagnitude < 0.02)
+        if (offset > 0)
+        {
+            offset -= Time.deltaTime;
+            return;
+        }
+        float smoothing = (Mathf.Abs((this.transform.position - p_FinalPos).magnitude - halfDistance)) / (halfDistance);
+        this.transform.position += m_Displacement * ((int)p_Direction * (m_Speed - (0.88f * smoothing)) * Time.deltaTime);
+        if ((this.transform.position - p_FinalPos).sqrMagnitude < 0.02 * m_Speed)
         {
             this.p_Direction = Direction.Backward;
-        } else if ((this.transform.position - p_OriginalPos).sqrMagnitude < 0.02)
+        } else if ((this.transform.position - p_OriginalPos).sqrMagnitude < 0.02 * m_Speed)
         {
             this.p_Direction = Direction.Forward;
         }

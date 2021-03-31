@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Checkpoints at which to re-equalize audio")]
-    private GameObject[] checkpoints;
+    public GameObject[] checkpoints;
 
     public static AudioManager instance = null;
     private AudioSource t_src;
@@ -123,8 +123,7 @@ public class AudioManager : MonoBehaviour
 
     public void muffle(GameObject checkpoint)
     {
-        /* TODO: if PlayerOne, progressively unmuffle treble
-         *       if PlayerTwo, progressively unmuffle bass   */
+        /* Generic muffle. */
 
         for (int i = 0; i < checkpoints.Length; i++)
         {
@@ -132,6 +131,27 @@ public class AudioManager : MonoBehaviour
             if (checkpoint == c)
             {
                 muffle(Mathf.Lerp(160f, trackCutoffs[trackNumber], (i + 1f) * (i + 1f) / (checkpoints.Length * checkpoints.Length)));
+            }
+        }
+    }
+
+    public void muffle(GameObject checkpoint, bool playerOne)
+    {
+        /* if PlayerOne, progressively unmuffle bass
+         * if PlayerTwo, progressively unmuffle treble   */
+
+        for (int i = 0; i < checkpoints.Length; i++)
+        {
+            GameObject c = checkpoints[i];
+            if (checkpoint == c)
+            {
+                if (playerOne)
+                {
+                    StartCoroutine(BassMuffle(Mathf.Lerp(170f, trackCutoffs[trackNumber], (i + 1f) / (1f * checkpoints.Length))));
+                } else
+                {
+                    StartCoroutine(TrebleMuffle(Mathf.Lerp(trackCutoffs[trackNumber], 500f, (i + 1f) / (1f * checkpoints.Length))));
+                }
             }
         }
     }
@@ -227,6 +247,12 @@ public class AudioManager : MonoBehaviour
             double elapsed = 0;
             double seconds_per_beat = 60d / t.BPM;
 
+            if (t.BPM > 80)
+            {
+                seconds_per_beat *= 2d;
+            }
+
+
             t_src.Play();
             b_src.Play();
 
@@ -236,7 +262,9 @@ public class AudioManager : MonoBehaviour
                 elapsed += Time.deltaTime;
                 yield return null;
             }
-            elapsed = 0;
+
+            /* Pre-empt the beat by this many seconds. */
+            elapsed = 0.12f;
 
             /* While the main section of the track plays, */
             while (t_src.isPlaying)

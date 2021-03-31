@@ -19,13 +19,5 @@ public class KillPlayer : MonoBehaviour
                 pc.Die();     
             }
         }
-        // else if (other.gameObject.transform.parent.CompareTag("Player"))
-        // {
-        //     PlayerController pc = other.transform.parent.GetComponent<PlayerController>();
-        //     if (pc.enabled)
-        //     {
-        //         pc.Die();
-        //     }
-        // }
     }
 }
