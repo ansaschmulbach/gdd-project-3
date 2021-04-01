@@ -20,4 +20,16 @@ public class KillPlayer : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+            if (pc.enabled)
+            {
+                pc.Die();
+            }
+        }
+    }
 }
