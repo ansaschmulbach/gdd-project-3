@@ -188,6 +188,8 @@ public class PlayerMovement : MonoBehaviour
 			} 
 			else if (!hasDoubleJumped && canDoubleJump && !doubleJumpThrottle)
 			{
+
+			        rb.velocity = new Vector2(rb.velocity.x, 0);
 				Debug.Log("DOUBLE JUMP");
 				rb.velocity += jumpVector;
 				transform.localPosition += new Vector3(0, 1f, 0);
