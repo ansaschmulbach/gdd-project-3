@@ -39,7 +39,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField]
 	[Tooltip("Max jump rate in seconds")]
 	private float maxJumpRate = 0.6f;
-	
+
+	private bool doubleJumpThrottle;
+
 	/**If you're touching a wall, you can't propulse*/
 	private bool touchingWall;
 
@@ -48,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private Vector2 vel;
 
-	private bool hasDoubleJumped;
+	private bool hasDoubleJumped = true;
 
 	#endregion
 
@@ -69,7 +71,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool leftContact
 	{
 		get { return left; }
-		set { left = value; }
+		set {
+			left = value;
+		}
 	}
 
 	/* Whether the player is touching a wall on their right. */
@@ -77,7 +81,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool rightContact
 	{
 		get { return right; }
-		set { right = value; }
+		set {
+			right = value;
+		}
 	}
 
 	#endregion
@@ -115,6 +121,14 @@ public class PlayerMovement : MonoBehaviour
 			return;
 		}
 
+		if (Input.GetKey(KeyCode.Space))
+		{
+			Jump();
+		} else
+		{
+			doubleJumpThrottle = false;
+		}
+
 		if (m_canPropulse || touchingFloor)
 		{
 
@@ -128,17 +142,13 @@ public class PlayerMovement : MonoBehaviour
                 {
 					//pc.Die();
                 }
-				xDir *= 0.2f;
-				vel.y = Mathf.Max(-0.4f, vel.y);
+				if (xDir != 0) { 
+					vel.y = Mathf.Max(-1f, vel.y);
+				}
 			}
 			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed, 0.02f);
 			rb.velocity = vel;
 			
-		}
-
-		if (Input.GetKey(KeyCode.Space))
-		{
-			Jump();
 		}
 
 		jumpTimer = Mathf.Max(0f, jumpTimer - Time.deltaTime);
@@ -151,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
+
 		if (jumpTimer == 0)
 		{
 			jumpTimer = maxJumpRate;
@@ -158,8 +169,11 @@ public class PlayerMovement : MonoBehaviour
 
 			if (touchingFloor)
 			{
+				Debug.Log("JUMP");
 				// rb.AddForce(Vector2.up * jumpSpeed);
 				rb.velocity += jumpVector;
+				transform.localPosition += new Vector3(0, 1f, 0);
+				doubleJumpThrottle = true;
 			}
 			else if (left)
             {
@@ -172,9 +186,11 @@ public class PlayerMovement : MonoBehaviour
 	            // rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector - pushVector;
 			} 
-			else if (!hasDoubleJumped && canDoubleJump)
+			else if (!hasDoubleJumped && canDoubleJump && !doubleJumpThrottle)
 			{
+				Debug.Log("DOUBLE JUMP");
 				rb.velocity += jumpVector;
+				transform.localPosition += new Vector3(0, 1f, 0);
 				hasDoubleJumped = true;
 			}
 
