@@ -103,11 +103,11 @@ public class PlayerMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 		pc = GetComponent<PlayerController>();
-		asrc = GetComponent<AudioSource>();
-		asrc.playOnAwake = false;
+		//asrc = GetComponent<AudioSource>();
+		//asrc.playOnAwake = false;
 		jumpTimer = 0;
-		jumpVector = new Vector2(0, jumpSpeed / 36);
-		pushVector = new Vector2(jumpSpeed / 32, 0);
+		jumpVector = new Vector2(0, jumpSpeed/32);
+		pushVector = new Vector2(jumpSpeed / 36, 0);
 		vel = Vector2.zero;
 		left = false;
 		right = false;
@@ -188,15 +188,14 @@ public class PlayerMovement : MonoBehaviour
 			} 
 			else if (!hasDoubleJumped && canDoubleJump && !doubleJumpThrottle)
 			{
-
-			        rb.velocity = new Vector2(rb.velocity.x, 0);
+				//rb.velocity = new Vector2(rb.velocity.x, 0);
 				Debug.Log("DOUBLE JUMP");
 				rb.velocity += jumpVector;
 				transform.localPosition += new Vector3(0, 1f, 0);
 				hasDoubleJumped = true;
 			}
 
-			asrc.Play();
+			//asrc.Play();
 		}
 	}
 
