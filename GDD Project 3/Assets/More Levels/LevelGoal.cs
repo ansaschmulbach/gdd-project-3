@@ -25,6 +25,10 @@ public class LevelGoal : MonoBehaviour
     [Tooltip("Next scene")]
     private Object nextScene;
 
+    [SerializeField]
+    [Tooltip("music controller")]
+    private Object music;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,11 +68,11 @@ public class LevelGoal : MonoBehaviour
                 activated = false;
                 StopCoroutine(Pulse());
                 StartCoroutine(Pulse());
-            } 
+            }
 
             // audioManager.muffle(3000f);
             //audioManager.muffle(gameObject, pm.canWallJump);
-
+            Destroy(music);
             SceneManager.LoadScene(nextScene.name);
         }
 
