@@ -5,22 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/MVP Level.unity
     guid: 7b4a36f1519284a68a78c5d0774c911b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Level 2/MVP Level 1.unity
     guid: e072c7fc06bf846bc92051ab38aa1d40
-  - enabled: 0
-    path: Assets/Scenes/MovementScene.unity
-    guid: 61bde5ebe2c5a7f40acdf702cdfb5a0a
   - enabled: 1
-    path: Assets/Scenes/Basic Wall Jump.unity
+    path: Assets/More Levels/moving-copy.unity
+    guid: d32fbba256353fa4fa6e19ee97381531
+  - enabled: 1
+    path: Assets/More Levels/basic-copy.unity
     guid: 66632570360469a46ae049dc2151b97f
   - enabled: 1
-    path: Assets/Scenes/DisappearingPlatformLevel.unity
+    path: Assets/More Levels/disappear-copy.unity
     guid: 98ed75ac090aaa442a21b8e660a8f4e0
-  - enabled: 1
-    path: Assets/Scenes/MovingPlatformLevel.unity
-    guid: d32fbba256353fa4fa6e19ee97381531
   m_configObjects: {}
