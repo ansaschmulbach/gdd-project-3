@@ -26,11 +26,13 @@ public class AnsaPlayerMovement : PlayerMovement
     
     #region Private Variables
 
+    [Header("For Debugging- do not edit")]
     [SerializeField] private Vector3 velocity;
     [SerializeField] private Vector3 acceleration;
     [SerializeField] private bool isJumping;
-    private bool isTouchingGround;
+    [SerializeField] private bool isTouchingGround;
     private bool isJumpingLast; //used to detect a switch in jumping
+    [SerializeField] private float xPressedLast;
     [SerializeField] private bool firstXPress = true;
 
     #endregion
@@ -43,6 +45,9 @@ public class AnsaPlayerMovement : PlayerMovement
         this.velocity = Vector3.zero;
         this.acceleration = Vector3.up * gravity;
         isJumping = false;
+        isJumpingLast = false;
+        xPressedLast = 0f;
+        Debug.Log("");
     }
 
     void Update()
@@ -52,7 +57,7 @@ public class AnsaPlayerMovement : PlayerMovement
         yJumpV0 = JumpY0Vel();
         gravity = Gravity();
         
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && isTouchingGround)
         {
             this.velocity.y = yJumpV0;
             this.velocity.x = 0;
@@ -60,22 +65,34 @@ public class AnsaPlayerMovement : PlayerMovement
             isTouchingGround = false;
         }
         
-        float xInput = Input.GetAxis("Horizontal");
-        float xMult = firstXPress ? 1 : 0;
+        float xInput = Input.GetAxisRaw("Horizontal");
+        firstXPress = (Math.Sign(xPressedLast) != Math.Sign(xInput)) && (xInput != 0);
+        float xMult = 0;
         float xVelAdd = isJumping ? xJumpVel : x0Land;
-        firstXPress = !firstXPress && (xInput != 0);
-        velocity.x += xVelAdd * xMult;
-        velocity.x *= xInput;
+        if (firstXPress || (isJumping ^ isJumpingLast))
+        {
+            xMult = 1;
+            velocity.x = xVelAdd * xMult * xInput;
+        }
+        velocity.x *= Math.Abs(xInput);
         velocity.z = 0;
 
-
-        float xAccel = isJumping ? 0 : xAccLand;
-        acceleration.x = xAccel;
-        acceleration.y = gravity;
-        acceleration.z = 0;
+        Debug.Log("VelAdd, XMult, Xinput: " + xVelAdd + ", " + xMult + ", " + xInput);
         Debug.Log("VelAccel: " +  velocity + ", " + acceleration);
         
+        
+        float xAccel = isJumping ? 0 : xAccLand;
+        acceleration.x = xAccel * xInput;
+        acceleration.y = gravity;
+        acceleration.z = 0;
+        // Debug.Log("VelAccel: " +  velocity + ", " + acceleration);
+        
         UpdatePositionVelocity();
+        
+        //Update Variables
+        xPressedLast = xInput;
+        isJumpingLast = isJumping;
+
     }
 
     #region Position Update methods
@@ -121,7 +138,15 @@ public class AnsaPlayerMovement : PlayerMovement
             isTouchingGround = true;
         }
     }
-    
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            isTouchingGround = true;
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Floor"))

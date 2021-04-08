@@ -488,6 +488,26 @@ PrefabInstance:
       propertyPath: m_LinearDrag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071068779688768218, guid: adf09cec53ba048018a5474ec6d3e378,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0050001144
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071068779688768218, guid: adf09cec53ba048018a5474ec6d3e378,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.011835098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071068779688768218, guid: adf09cec53ba048018a5474ec6d3e378,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7930622
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071068779688768218, guid: adf09cec53ba048018a5474ec6d3e378,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1555138
+      objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: timeInAir
