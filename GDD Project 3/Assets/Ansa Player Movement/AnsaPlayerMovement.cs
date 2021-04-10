@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class AnsaPlayerMovement : PlayerMovement
 {
@@ -39,6 +41,7 @@ public class AnsaPlayerMovement : PlayerMovement
 
     void Start()
     {
+        GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.Interpolate;
         xJumpVel = XVel();
         yJumpV0 = JumpY0Vel();
         gravity = Gravity();
@@ -99,6 +102,11 @@ public class AnsaPlayerMovement : PlayerMovement
 
     void UpdatePositionVelocity()
     {
+        if (isTouchingGround)
+        {
+            this.velocity.y = 0;
+        }
+       
         this.transform.position += velocity * Time.deltaTime + (0.5f * Time.deltaTime * Time.deltaTime) * acceleration;
         this.velocity += acceleration * Time.deltaTime;
         if (isTouchingGround)

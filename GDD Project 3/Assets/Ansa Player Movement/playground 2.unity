@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.1555138
       objectReference: {fileID: 0}
+    - target: {fileID: 2071068780152107891, guid: adf09cec53ba048018a5474ec6d3e378,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: timeInAir
