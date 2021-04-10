@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class PlayerController : MonoBehaviour
 {
 
     #region Inspector Variables
-
     #endregion
     
     #region Cached Values
@@ -15,6 +15,7 @@ public abstract class PlayerController : MonoBehaviour
     private Collider2D cr_feet_col;
     private Collider2D cr_left_col;
     private Collider2D cr_right_col;
+    private Vector3 initial_position;
 
     #endregion
 
@@ -25,10 +26,21 @@ public abstract class PlayerController : MonoBehaviour
         cr_pm = GetComponent<PlayerMovement>();
         cr_col = GetComponent<Collider2D>();
         cr_feet_col = GetComponentInChildren<FeetController>().GetComponent<BoxCollider2D>();
+        initial_position = transform.position;
         if (cr_pm.canWallJump)
         {
             cr_left_col = GetComponentInChildren<LeftColliderScript>().GetComponent<BoxCollider2D>();
             cr_right_col = GetComponentInChildren<RightColliderScript>().GetComponent<BoxCollider2D>();
+            print("set left/right colliders");
+
+            if (cr_left_col)
+            {
+                print("found left");
+            }
+            if (cr_right_col)
+            {
+                print("found right");
+            }
         }
         SetStartState();
     }
@@ -67,6 +79,17 @@ public abstract class PlayerController : MonoBehaviour
             cr_left_col.enabled = false;
             cr_right_col.enabled = false;
         }
+        ResetEQ();
+
+    }
+
+    private void ResetEQ()
+    {
+        AudioManager am = AudioManager.instance;
+        if (am)
+        {
+            am.muffle(21000f);
+        }
     }
 
     public void DisableMovement()
@@ -76,5 +99,19 @@ public abstract class PlayerController : MonoBehaviour
     
     #endregion
 
+    #region Health/Death Methods
+
+    public void Die()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            Destroy(players[i]);
+        }
+        Debug.Log("Game Over");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    #endregion
 
 }

@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     #region Inspector Variables
 
     [SerializeField] private float m_DampTime = 0.15f;
-    [SerializeField] private Vector2 m_OffSet = new Vector2(0.5f, 0.5f);
+    [SerializeField] private Vector2 m_OffSet = new Vector2(0.5f, 0.8f);
     
     #endregion
 

@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
-  - Wall
   - LeftRight
+  - Death
   layers:
   - Default
   - TransparentFX
@@ -17,7 +17,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Lighting
   - 
   - 
   - 

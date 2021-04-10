@@ -57,6 +57,11 @@ public class DropAfterMoves : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            StartCoroutine(Disintegrate());
+        }
+
         if (p_dropping)
         {
             return;
@@ -101,15 +106,36 @@ public class DropAfterMoves : MonoBehaviour
 
     #endregion
 
-    #region Drop
-    
+    #region Destruction
     
     private IEnumerator Drop()
     {
         yield return new WaitForSeconds(m_DropDelay);
-        GetComponent<Collider2D>().enabled = false;
-        this.p_RB.constraints = RigidbodyConstraints2D.None;  
+
+        // Don't let players jump on dropped platforms.
+        // Turning off the collider conflicts with lighting, beware.
+        //GetComponent<Collider2D>().enabled = false;
+
+        // Play around with this setting to make dropping more consistent
+        this.p_RB.constraints = RigidbodyConstraints2D.None;
+        //this.p_RB.constraints = RigidbodyConstraints2D.FreezePositionX;
+
         this.p_RB.velocity = Vector2.down;
+    }
+
+    private IEnumerator Disintegrate()
+    {
+        float factor = -0.0002f;
+        while (transform.localScale.x > 0.05f)
+        {
+            if (factor < 0.0016f)
+            {
+                factor += 0.0001f;
+            }
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, factor);
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 
     #endregion
