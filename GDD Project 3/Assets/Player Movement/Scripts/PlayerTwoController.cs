@@ -16,21 +16,13 @@ public class PlayerTwoController : PlayerController
 		
 		Debug.Log(collision.gameObject.tag);
 		
-		if (collision.gameObject.CompareTag("Player"))
-		{
-			Debug.Log(collision.gameObject);
-			if (collision.gameObject.TryGetComponent(out PlayerController pc))
-			{
-				Debug.Log("setting disabled");
-				this.SetEnabled();
-				pc.SetDisabled();
-			}
-		} 
-		else if (collision.gameObject.CompareTag("LeftRight"))
+		if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("LeftRight"))
 		{
 			PlayerController pc = collision.collider.GetComponentInParent<PlayerController>();
 			this.SetEnabled();
 			pc.SetDisabled();
+			GameObject transitioner = GameObject.FindWithTag("LevelTransitioner");
+			transitioner.GetComponent<LevelTransitioner>().EnableTransition();
 		}
 
 	}
