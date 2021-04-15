@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7455725680697726729}
   - component: {fileID: 8221088986594745187}
   - component: {fileID: 8033319467266642183}
+  - component: {fileID: 470476639909742483}
   m_Layer: 0
   m_Name: 1 Hit Drop Platform
   m_TagString: Floor
@@ -146,3 +147,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &470476639909742483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486390367528977674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862204151e4994194852b3e1138e183a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

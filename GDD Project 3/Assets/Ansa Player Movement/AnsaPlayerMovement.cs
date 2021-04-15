@@ -5,8 +5,12 @@ using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
+[RequireComponent(typeof(CollisionHandler))]
 public class AnsaPlayerMovement : PlayerMovement
 {
+
+
+    #region Inspector Variables
 
     [Header("Jump variables")]
     [SerializeField] private float timeInAir;
@@ -16,8 +20,9 @@ public class AnsaPlayerMovement : PlayerMovement
     [Header("Land variables")]
     [SerializeField] private float x0Land; //x(0) velocity on land
     [SerializeField] private float xAccLand;
-    
-    
+
+    #endregion
+
     #region Calculated Variables
 
     private float xJumpVel;
@@ -31,17 +36,23 @@ public class AnsaPlayerMovement : PlayerMovement
     [Header("For Debugging- do not edit")]
     [SerializeField] private Vector3 velocity;
     [SerializeField] private Vector3 acceleration;
-    [SerializeField] private bool isJumping;
-    [SerializeField] private bool isTouchingGround;
     private bool isJumpingLast; //used to detect a switch in jumping
     [SerializeField] private float xPressedLast;
     [SerializeField] private bool firstXPress = true;
-
+    private CollisionHandler colHandler;
+    
     #endregion
 
+    #region Public Variables
+
+    [Header("Public Variables - Do not Edit")]
+    public bool isJumping;
+    public bool isTouchingGround;
+
+    #endregion
+    
     void Start()
     {
-        GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.Interpolate;
         xJumpVel = XVel();
         yJumpV0 = JumpY0Vel();
         gravity = Gravity();
@@ -50,6 +61,7 @@ public class AnsaPlayerMovement : PlayerMovement
         isJumping = false;
         isJumpingLast = false;
         xPressedLast = 0f;
+        colHandler = GetComponent<CollisionHandler>();
         Debug.Log("");
     }
 
@@ -80,8 +92,10 @@ public class AnsaPlayerMovement : PlayerMovement
         velocity.x *= Math.Abs(xInput);
         velocity.z = 0;
 
-        Debug.Log("VelAdd, XMult, Xinput: " + xVelAdd + ", " + xMult + ", " + xInput);
-        Debug.Log("VelAccel: " +  velocity + ", " + acceleration);
+        // Debug.Log("VelAdd, XMult, Xinput: " + xVelAdd + ", " + xMult + ", " + xInput);
+        // Debug.Log("VelAccel: " +  velocity + ", " + acceleration);
+        //
+        //
         
         
         float xAccel = isJumping ? 0 : xAccLand;
@@ -102,17 +116,15 @@ public class AnsaPlayerMovement : PlayerMovement
 
     void UpdatePositionVelocity()
     {
-        if (isTouchingGround)
-        {
-            this.velocity.y = 0;
-        }
-       
-        this.transform.position += velocity * Time.deltaTime + (0.5f * Time.deltaTime * Time.deltaTime) * acceleration;
+        Vector3 newPosUpdate = velocity * Time.deltaTime + (0.5f * Time.deltaTime * Time.deltaTime) * acceleration;
+        colHandler.UpdateCollisionVelocity(ref newPosUpdate);
+        transform.Translate(newPosUpdate);
         this.velocity += acceleration * Time.deltaTime;
         if (isTouchingGround)
         {
-            this.velocity.y = 0;
+            velocity.y = 0;
         }
+        
     }
 
     #endregion

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlidePlatform : MonoBehaviour
+public class SlidePlatform : MonoBehaviour, IPlatform
 {
 
     #region Inspector Variables
@@ -23,9 +23,10 @@ public class SlidePlatform : MonoBehaviour
 
     private Vector3 p_OriginalPos;
     private Vector3 p_FinalPos;
+    private Vector3 vel;
     private Direction p_Direction;
     private float halfDistance;
-    
+
     #endregion
 
     #region Direction Enum
@@ -44,6 +45,7 @@ public class SlidePlatform : MonoBehaviour
         p_FinalPos = p_OriginalPos + m_Displacement;
         this.p_Direction = Direction.Forward;
         halfDistance = m_Displacement.magnitude / 2;
+        vel = Vector3.zero;
     }
 
     void Update()
@@ -54,7 +56,8 @@ public class SlidePlatform : MonoBehaviour
             return;
         }
         float smoothing = (Mathf.Abs((this.transform.position - p_FinalPos).magnitude - halfDistance)) / (halfDistance);
-        this.transform.position += m_Displacement * ((int)p_Direction * (m_Speed - (0.88f * smoothing)) * Time.deltaTime);
+        vel = m_Displacement * ((int) p_Direction * (m_Speed - (0.88f * smoothing)) * Time.deltaTime);
+        this.transform.position += vel;
         if ((this.transform.position - p_FinalPos).sqrMagnitude < 0.02 * m_Speed)
         {
             this.p_Direction = Direction.Backward;
@@ -62,5 +65,10 @@ public class SlidePlatform : MonoBehaviour
         {
             this.p_Direction = Direction.Forward;
         }
+    }
+
+    public Vector3 velocity()
+    {
+        return vel;
     }
 }

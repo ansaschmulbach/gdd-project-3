@@ -37,7 +37,7 @@ public class CameraFollow : MonoBehaviour
 
     #region Update Methods
 
-    void Update()
+    void LateUpdate()
     {
         if (!cr_PM.isActive)
         {
@@ -49,6 +49,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 delta = cr_Player.position - cr_Camera.ViewportToWorldPoint(new Vector3(m_OffSet.x, m_OffSet.y, point.z));
             Vector3 destination = transform.position + delta;
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref p_Velocity, m_DampTime);
+            //transform.position = destination;
         }
     }
 

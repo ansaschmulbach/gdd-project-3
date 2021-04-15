@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1 Hit Drop Platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1486390367528977674, guid: 21fa756cff4c0df43a71c9cd62a231a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21fa756cff4c0df43a71c9cd62a231a8, type: 3}
 --- !u!4 &50010863 stripped
@@ -282,6 +287,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -383,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -421,12 +436,12 @@ PrefabInstance:
     - target: {fileID: 2071068779688768216, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.821632
+      value: 56.62
       objectReference: {fileID: 0}
     - target: {fileID: 2071068779688768216, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 81.41753
+      value: 77.59
       objectReference: {fileID: 0}
     - target: {fileID: 2071068779688768216, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
@@ -521,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: jumpHeight
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
@@ -538,7 +553,13 @@ PrefabInstance:
       propertyPath: xAccLand
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2071068779688768217, guid: adf09cec53ba048018a5474ec6d3e378, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: adf09cec53ba048018a5474ec6d3e378, type: 3}
 --- !u!1001 &99037594
 PrefabInstance:
@@ -612,7 +633,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 183066682195363763, guid: de535481823b543eb8eefefaeb3680e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de535481823b543eb8eefefaeb3680e4, type: 3}
 --- !u!1001 &191061985
 PrefabInstance:
@@ -690,6 +712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -791,6 +818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -891,6 +923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -985,6 +1022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -1106,6 +1148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &266688132 stripped
@@ -1190,6 +1237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -1290,6 +1342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -1416,6 +1473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &431517377 stripped
@@ -1500,6 +1562,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1 Hit Drop Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486390367528977674, guid: 21fa756cff4c0df43a71c9cd62a231a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21fa756cff4c0df43a71c9cd62a231a8, type: 3}
@@ -1586,6 +1653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -1609,6 +1681,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 550667638}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &569387446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2071068779688768196, guid: adf09cec53ba048018a5474ec6d3e378,
+    type: 3}
+  m_PrefabInstance: {fileID: 93782333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &569387447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569387446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da6b8774124e414c8e0e12f92907fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinWidth: 0.015
+  horizontalRayCount: 2
+  verticalRayCount: 2
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1001 &599619601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1685,6 +1781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -1789,7 +1890,7 @@ PrefabInstance:
     - target: {fileID: 5312769857157776009, guid: 4f2af01fb66997248ab3edf4b9e7e28f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5312769857157776009, guid: 4f2af01fb66997248ab3edf4b9e7e28f,
         type: 3}
@@ -1890,6 +1991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e92998db92157c240885e1b83e458440, type: 3}
 --- !u!4 &632189878 stripped
@@ -1975,6 +2081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -1997,6 +2108,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 72715863326884458, guid: e92998db92157c240885e1b83e458440,
     type: 3}
   m_PrefabInstance: {fileID: 640263064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &647626155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1045125460}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &693572439
 PrefabInstance:
@@ -2074,6 +2191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -2175,6 +2297,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -2275,6 +2402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -2369,6 +2501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -2470,6 +2607,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -2569,6 +2711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6579182138605378461, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -2702,6 +2849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -2801,6 +2953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -2902,6 +3059,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -2934,7 +3096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858239405}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Static Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3002,7 +3164,7 @@ Transform:
   - {fileID: 632189878}
   - {fileID: 851864280}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &873855115
 PrefabInstance:
@@ -3081,6 +3243,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -3108,7 +3275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916040506}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Drop Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3131,8 +3298,9 @@ Transform:
   - {fileID: 50010863}
   - {fileID: 550541715}
   - {fileID: 1112247445}
+  - {fileID: 647626155}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &935863982
 PrefabInstance:
@@ -3211,6 +3379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -3241,20 +3414,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5145908667165357176, guid: 2a3dda438aceac64aa652be79360ec11,
+        type: 3}
+      propertyPath: field of view
+      value: 59.95383
+      objectReference: {fileID: 0}
     - target: {fileID: 5145908667165357178, guid: 2a3dda438aceac64aa652be79360ec11,
         type: 3}
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5145908667165357182, guid: 2a3dda438aceac64aa652be79360ec11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145908667165357182, guid: 2a3dda438aceac64aa652be79360ec11,
+        type: 3}
+      propertyPath: m_DampTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5145908667165357183, guid: 2a3dda438aceac64aa652be79360ec11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92.08
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5145908667165357183, guid: 2a3dda438aceac64aa652be79360ec11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.28
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5145908667165357183, guid: 2a3dda438aceac64aa652be79360ec11,
         type: 3}
@@ -3380,6 +3568,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -3489,6 +3682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slide Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939567121365122166, guid: 7cc14973b6d7fc94fa833a9c04ceb981,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc14973b6d7fc94fa833a9c04ceb981, type: 3}
@@ -3600,6 +3798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &1025318062 stripped
@@ -3668,7 +3871,7 @@ PrefabInstance:
     - target: {fileID: 2939567121365122154, guid: 7cc14973b6d7fc94fa833a9c04ceb981,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2939567121365122154, guid: 7cc14973b6d7fc94fa833a9c04ceb981,
         type: 3}
@@ -3695,6 +3898,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slide Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2939567121365122166, guid: 7cc14973b6d7fc94fa833a9c04ceb981,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc14973b6d7fc94fa833a9c04ceb981, type: 3}
 --- !u!1001 &1045125460
@@ -3702,17 +3910,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 916040506}
     m_Modifications:
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 62.5
+      value: 18.82
       objectReference: {fileID: 0}
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.5
+      value: 19.42
       objectReference: {fileID: 0}
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
@@ -3722,17 +3930,17 @@ PrefabInstance:
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
@@ -3742,7 +3950,7 @@ PrefabInstance:
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
@@ -3759,10 +3967,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042804601450608370, guid: 76ea17b090347544aa277d737292dfc6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3361052667210190258, guid: 76ea17b090347544aa277d737292dfc6,
         type: 3}
       propertyPath: m_Name
       value: 2 Hit Drop Platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361052667210190258, guid: 76ea17b090347544aa277d737292dfc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76ea17b090347544aa277d737292dfc6, type: 3}
@@ -3842,6 +4065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -3937,6 +4165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -4038,6 +4271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1 Hit Drop Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 1486390367528977674, guid: 21fa756cff4c0df43a71c9cd62a231a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21fa756cff4c0df43a71c9cd62a231a8, type: 3}
 --- !u!4 &1112247445 stripped
@@ -4138,6 +4376,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &1120935242 stripped
@@ -4222,6 +4465,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -4333,6 +4581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &1263710292 stripped
@@ -4417,6 +4670,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -4533,6 +4791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slide Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2939567121365122166, guid: 7cc14973b6d7fc94fa833a9c04ceb981,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc14973b6d7fc94fa833a9c04ceb981, type: 3}
 --- !u!4 &1282134293 stripped
@@ -4618,6 +4881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2 Hit Drop Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 3361052667210190258, guid: 76ea17b090347544aa277d737292dfc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76ea17b090347544aa277d737292dfc6, type: 3}
 --- !u!4 &1291164897 stripped
@@ -4702,6 +4970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -4803,6 +5076,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -4902,6 +5180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -5003,6 +5286,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -5083,7 +5371,7 @@ PrefabInstance:
     - target: {fileID: 5723113317764218011, guid: caa3630c5f0d95c469687b5b314b6234,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5723113317764218011, guid: caa3630c5f0d95c469687b5b314b6234,
         type: 3}
@@ -5183,6 +5471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -5294,6 +5587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slide Platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2939567121365122166, guid: 7cc14973b6d7fc94fa833a9c04ceb981,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc14973b6d7fc94fa833a9c04ceb981, type: 3}
 --- !u!4 &1510968804 stripped
@@ -5378,6 +5676,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 2 Hit Drop Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361052667210190258, guid: 76ea17b090347544aa277d737292dfc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76ea17b090347544aa277d737292dfc6, type: 3}
@@ -5464,6 +5767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -5496,7 +5804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1644541842}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rhythm Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5523,7 +5831,7 @@ Transform:
   - {fileID: 1801464325}
   - {fileID: 266688132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1669246784
 PrefabInstance:
@@ -5601,6 +5909,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -5702,6 +6015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -5725,6 +6043,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1720828444}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1789365078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 183066682195363760, guid: de535481823b543eb8eefefaeb3680e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 99037594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789365079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789365078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da6b8774124e414c8e0e12f92907fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinWidth: 0.015
+  horizontalRayCount: 2
+  verticalRayCount: 2
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1001 &1789924837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5801,6 +6143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -5912,6 +6259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &1801464325 stripped
@@ -5996,6 +6348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -6097,6 +6454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -6197,6 +6559,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_Color.r
@@ -6292,6 +6659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e92998db92157c240885e1b83e458440, type: 3}
 --- !u!4 &1885374069 stripped
@@ -6376,6 +6748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -6477,6 +6854,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -6598,6 +6980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &2037894508 stripped
@@ -6682,6 +7069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}
@@ -6793,6 +7185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhythm platform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 621910841155804727, guid: e01363ec9987acd43b47364b8ef00ae7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01363ec9987acd43b47364b8ef00ae7, type: 3}
 --- !u!4 &2093238388 stripped
@@ -6878,6 +7275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Platform (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e92998db92157c240885e1b83e458440, type: 3}
 --- !u!4 &2107886084 stripped
@@ -6962,6 +7364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static Platform (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342036861518105374, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7473376605321663294, guid: e92998db92157c240885e1b83e458440,
         type: 3}

@@ -25,7 +25,7 @@ public abstract class PlayerController : MonoBehaviour
     {
         cr_pm = GetComponent<PlayerMovement>();
         cr_col = GetComponent<Collider2D>();
-        cr_feet_col = GetComponentInChildren<FeetController>().GetComponent<BoxCollider2D>();
+        //cr_feet_col = GetComponentInChildren<FeetController>().GetComponent<BoxCollider2D>();
         initial_position = transform.position;
         if (cr_pm.canWallJump)
         {
@@ -55,9 +55,9 @@ public abstract class PlayerController : MonoBehaviour
     {
         Debug.Log("hii");
         cr_pm.isActive = true;
-        this.GetComponent<Rigidbody2D>().isKinematic = false;
+        //this.GetComponent<Rigidbody2D>().isKinematic = false;
         cr_col.enabled = true;
-        cr_feet_col.enabled = true;
+//        cr_feet_col.enabled = true;
         if (cr_pm.canWallJump)
         {
             cr_left_col.enabled = true;
@@ -68,12 +68,12 @@ public abstract class PlayerController : MonoBehaviour
     public void SetDisabled()
     {
         cr_pm.isActive = false;
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.isKinematic = true;
+        //Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        // rb.velocity = Vector2.zero;
+        // rb.angularVelocity = 0f;
+        // rb.isKinematic = true;
         cr_col.enabled = false;
-        cr_feet_col.enabled = false;
+//        cr_feet_col.enabled = false;
         if (cr_pm.canWallJump)
         {
             cr_left_col.enabled = false;
