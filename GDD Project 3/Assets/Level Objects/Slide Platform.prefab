@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2939567121365122154}
+  - component: {fileID: 992321052946688864}
   - component: {fileID: 2939567121365122155}
   - component: {fileID: 2939567121365122152}
   - component: {fileID: 2939567121365122153}
   m_Layer: 0
-  m_Name: Slide Test
+  m_Name: Slide Platform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &992321052946688864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939567121365122166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a20d36c8f461c458e523c90ea52aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 2
 --- !u!212 &2939567121365122155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -123,3 +137,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Displacement: {x: 3, y: 3, z: 0}
   m_Speed: 1
+  offset: 0

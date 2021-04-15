@@ -80,7 +80,8 @@ public abstract class PlayerController : MonoBehaviour
             cr_right_col.enabled = false;
         }
         ResetEQ();
-
+        ColorManager c = ColorManager.instance;
+        c.SwitchColor();
     }
 
     private void ResetEQ()

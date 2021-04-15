@@ -91,12 +91,13 @@ public class PlayerMovement : MonoBehaviour
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
+		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 		pc = GetComponent<PlayerController>();
 		asrc = GetComponent<AudioSource>();
 		asrc.playOnAwake = false;
 		jumpTimer = 0;
-		jumpVector = new Vector2(0, jumpSpeed / 36);
-		pushVector = new Vector2(jumpSpeed / 32, 0);
+		jumpVector = new Vector2(0, jumpSpeed * rb.gravityScale);
+		pushVector = new Vector2(movementSpeed / 5, 0);
 		vel = Vector2.zero;
 		left = false;
 		right = false;
@@ -105,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		//rb.velocity *= 0.99f;
 
 		if (!isActive)
 		{
@@ -115,9 +115,12 @@ public class PlayerMovement : MonoBehaviour
 		if (m_canPropulse || touchingFloor)
 		{
 
-			float xDir = Input.GetAxisRaw("Horizontal");
+			float xDir = 0.2f * Input.GetAxisRaw("Horizontal");
 			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
-			xDir *= 0.2f;
+			if (vel.x > 10 && xDir < 0 || vel.x < -10 && xDir > 0)
+			{
+				xDir *= 2;
+			}
 			/*if (!touchingFloor)
             {
 				xDir = xDir * 0.75f;
@@ -125,16 +128,16 @@ public class PlayerMovement : MonoBehaviour
             } */
 			vel = rb.velocity;
 
-			if (left || right)
+			if ((xDir < 0 && left) || (xDir > 0 && right))
 			{
 				if (left && right && touchingFloor)
                 {
 					//pc.Die();
                 }
-				xDir *= 0.2f;
-				vel.y = Mathf.Max(-0.4f, vel.y);
+				xDir *= 0.75f;
+				vel.y = Mathf.Max(-0.5f, vel.y);
 			}
-			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed, 0.02f);
+			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed * 1.5f, 0.0275f);
 			rb.velocity = vel;
 			
 		}
@@ -146,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		jumpTimer = Mathf.Max(0f, jumpTimer - Time.deltaTime);
+		jumpTimer = jumpTimer - Time.deltaTime;
 
 	}
 
@@ -156,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
-		if (jumpTimer == 0)
+		if (jumpTimer < 0)
 		{
 			jumpTimer = maxJumpRate;
 
