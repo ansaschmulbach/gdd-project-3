@@ -7,8 +7,14 @@ public class PlayerTwoController : PlayerController
 
 	protected override void SetStartState()
 	{
-		Debug.Log("hi ");
-		DisableMovement();
+		if (order == lm.lastPlayerIndex)
+		{
+			SetEnabled();
+		}
+		else
+		{
+			DisableMovement();
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -24,6 +30,7 @@ public class PlayerTwoController : PlayerController
 				Debug.Log("setting disabled");
 				this.SetEnabled();
 				pc.SetDisabled();
+				lm.UpdateLastPlayer(gameObject);
 			}
 		} 
 		else if (collision.gameObject.CompareTag("LeftRight"))
@@ -31,6 +38,7 @@ public class PlayerTwoController : PlayerController
 			PlayerController pc = collision.collider.GetComponentInParent<PlayerController>();
 			this.SetEnabled();
 			pc.SetDisabled();
+			lm.UpdateLastPlayer(gameObject);
 		}
 
 	}

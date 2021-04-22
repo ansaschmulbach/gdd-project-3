@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
 	[Tooltip("Can you move mid-air?")]
 	public bool touchingFloor;
 
-	[SerializeField] [Tooltip("Can you wall jump?")]
+	[SerializeField]
+	[Tooltip("Can you wall jump?")]
 	public bool canWallJump;
 
 	[SerializeField]
@@ -27,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
 	[Tooltip("Can move")]
 	public bool isActive = true;
 
+	[SerializeField]
+	[Tooltip("Can Double Jump?")]
+	private bool canDoubleJump;
+
 	#endregion
 
 	#region Jumping variables
@@ -36,7 +41,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField]
 	[Tooltip("Max jump rate in seconds")]
 	private float maxJumpRate = 0.6f;
-	
+
+	private bool doubleJumpThrottle;
+
 	/**If you're touching a wall, you can't propulse*/
 	private bool touchingWall;
 
@@ -44,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 pushVector;
 
 	private Vector2 vel;
+
+	private bool hasDoubleJumped;
 
 	#endregion
 
@@ -101,14 +110,26 @@ public class PlayerMovement : MonoBehaviour
 		vel = Vector2.zero;
 		left = false;
 		right = false;
+		hasDoubleJumped = false;
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
     {
-
 		if (!isActive)
 		{
+			rb.gravityScale = 0;
+		}
+		else
+		{
+			rb.gravityScale = 6.5f;
+		}
+	}
+
+	void Update()
+    {
+		if (!isActive)
+        {
 			return;
 		}
 
@@ -132,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if (left && right && touchingFloor)
                 {
-					//pc.Die();
+					pc.Die();
                 }
 				xDir *= 0.75f;
 				vel.y = Mathf.Max(-0.5f, vel.y);
@@ -142,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 			
 		}
 
-		if (touchingFloor || left || right) {
+		if (touchingFloor || canDoubleJump|| left || right) {
 			if (Input.GetKey(KeyCode.Space))
 			{
 				Jump();
@@ -166,22 +187,30 @@ public class PlayerMovement : MonoBehaviour
 
 			if (touchingFloor)
 			{
-				// rb.AddForce(Vector2.up * jumpSpeed);
 				rb.velocity += jumpVector;
+				asrc.Play();
 			}
 			else if (left)
             {
-				// rb.AddForce(new Vector2(jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector + pushVector;
-
+				asrc.Play();
 			}
 			else if (right)
             {
-	            // rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector - pushVector;
-			}
+				asrc.Play();
 
-			asrc.Play();
+			}
+			else if (!hasDoubleJumped && canDoubleJump)
+			{
+				// Debug.Log("DOUBLE JUMP");
+				Vector2 vel = rb.velocity;
+				vel.y = Mathf.Max(rb.velocity.y, -0.1f);
+				rb.velocity = vel + jumpVector;
+				//transform.localPosition += new Vector3(0, 1f, 0);
+				hasDoubleJumped = true;
+				asrc.Play();
+			}
 		}
 	}
 
@@ -189,14 +218,15 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Collision Methods
 
-	/*private void OnCollisionEnter2D(Collision2D other)
+	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.collider.CompareTag("Wall"))
+		if (other.collider.CompareTag("Floor"))
 		{
-			this.touchingWall = true;
+			hasDoubleJumped = false;
 		}
 	}
 
+	/*
 	private void OnCollisionExit2D(Collision2D other)
 	{
 		if (other.collider.CompareTag("Wall"))

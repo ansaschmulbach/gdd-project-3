@@ -1,28 +1,35 @@
 using System;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public abstract class PlayerController : MonoBehaviour
 {
 
     #region Inspector Variables
+    [SerializeField]
+    [Tooltip("Order in which the player uses the characters in the level; 0 for first, 1 for second")]
+    protected int order;
     #endregion
-    
+
     #region Cached Values
 
-    private PlayerMovement cr_pm;
-    private Collider2D cr_col;
-    private Collider2D cr_feet_col;
-    private Collider2D cr_left_col;
-    private Collider2D cr_right_col;
-    private Vector3 initial_position;
+    protected LevelManager lm;
+    protected PlayerMovement cr_pm;
+    protected Collider2D cr_col;
+    protected Collider2D cr_feet_col;
+    protected Collider2D cr_left_col;
+    protected Collider2D cr_right_col;
+    protected Vector3 initial_position;
 
     #endregion
 
     #region Initialization Methods
 
-    void Start()
+    IEnumerator Start()
     {
+        lm = LevelManager.instance;
+        lm.playerOrder[order] = gameObject;
         cr_pm = GetComponent<PlayerMovement>();
         cr_col = GetComponent<Collider2D>();
         cr_feet_col = GetComponentInChildren<FeetController>().GetComponent<BoxCollider2D>();
@@ -33,16 +40,20 @@ public abstract class PlayerController : MonoBehaviour
             cr_right_col = GetComponentInChildren<RightColliderScript>().GetComponent<BoxCollider2D>();
             print("set left/right colliders");
 
-            if (cr_left_col)
+            /*if (cr_left_col)
             {
                 print("found left");
             }
             if (cr_right_col)
             {
                 print("found right");
-            }
+            }*/
         }
         SetStartState();
+
+        yield return null;
+
+        lm.MovePlayerToCheckpoint();
     }
 
     protected abstract void SetStartState();
@@ -64,7 +75,7 @@ public abstract class PlayerController : MonoBehaviour
             cr_right_col.enabled = true;   
         }
     }
-    
+
     public void SetDisabled()
     {
         cr_pm.isActive = false;
