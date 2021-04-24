@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level 2/MVP Level 1.unity
     guid: e072c7fc06bf846bc92051ab38aa1d40
+  - enabled: 1
+    path: Assets/Level Transition/Level 2.unity
+    guid: 253881fd96ba5451aa8ba69f2e1f9cae
   m_configObjects: {}
