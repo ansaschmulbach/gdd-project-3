@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -117,12 +118,25 @@ public class AnsaPlayerMovement : PlayerMovement
     void UpdatePositionVelocity()
     {
         Vector3 newPosUpdate = velocity * Time.deltaTime + (0.5f * Time.deltaTime * Time.deltaTime) * acceleration;
-        colHandler.UpdateCollisionVelocity(ref newPosUpdate);
-        transform.Translate(newPosUpdate);
+        Vector3 platformVel = Vector3.zero;
+        Collider2D groundCollider = colHandler.UpdateCollisionVelocity(ref newPosUpdate, ref platformVel);
+        if (isTouchingGround)
+        {
+            float yDist = groundCollider.bounds.size.y/2 + GetComponent<Collider2D>().bounds.size.y/2;
+            float xPos = this.transform.position.x;
+            float yPos = groundCollider.transform.position.y + yDist;
+            float zPos = this.transform.position.z;
+            this.transform.position = new Vector3(xPos, yPos, zPos) + newPosUpdate;
+        }
+        else
+        {
+            transform.Translate(newPosUpdate);
+        }
         this.velocity += acceleration * Time.deltaTime;
         if (isTouchingGround)
         {
-            velocity.y = 0;
+            Debug.Log(platformVel.y);
+            velocity.y = platformVel.y;
         }
         
     }

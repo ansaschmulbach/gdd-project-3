@@ -531,27 +531,27 @@ PrefabInstance:
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: timeInAir
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: jumpHeight
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: xJumpDist
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: x0Land
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
       propertyPath: xAccLand
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7629153523482343892, guid: adf09cec53ba048018a5474ec6d3e378,
         type: 3}
@@ -631,6 +631,11 @@ PrefabInstance:
     - target: {fileID: 183066682195363775, guid: de535481823b543eb8eefefaeb3680e4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907796167305753609, guid: de535481823b543eb8eefefaeb3680e4,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -5810,7 +5815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1644541842
 Transform:
   m_ObjectHideFlags: 0
@@ -6056,7 +6061,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789365078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7da6b8774124e414c8e0e12f92907fd1, type: 3}
   m_Name: 

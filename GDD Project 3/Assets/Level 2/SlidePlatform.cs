@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,9 +56,9 @@ public class SlidePlatform : MonoBehaviour, IPlatform
             offset -= Time.deltaTime;
             return;
         }
+        this.transform.position += vel;
         float smoothing = (Mathf.Abs((this.transform.position - p_FinalPos).magnitude - halfDistance)) / (halfDistance);
         vel = m_Displacement * ((int) p_Direction * (m_Speed - (0.88f * smoothing)) * Time.deltaTime);
-        this.transform.position += vel;
         if ((this.transform.position - p_FinalPos).sqrMagnitude < 0.02 * m_Speed)
         {
             this.p_Direction = Direction.Backward;
@@ -66,6 +67,7 @@ public class SlidePlatform : MonoBehaviour, IPlatform
             this.p_Direction = Direction.Forward;
         }
     }
+    
 
     public Vector3 velocity()
     {

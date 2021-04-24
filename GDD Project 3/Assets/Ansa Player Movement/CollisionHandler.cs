@@ -32,45 +32,70 @@ public class CollisionHandler : MonoBehaviour
         horizRaySpacing = HorizontalRaysSpacing();
         vertRaySpacing = VerticalRaysSpacing();
         playerMovement = GetComponent<AnsaPlayerMovement>();
-        Debug.Log(" ");
+        Debug.Log("");
     }
     
-    public void UpdateCollisionVelocity(ref Vector3 velocity)
+    public Collider2D UpdateCollisionVelocity(ref Vector3 velocity, ref Vector3 platformVel)
     {
         UpdateRaycastOrigins();
-        VerticalCollisions(ref velocity);
+        //HorizontalCollisions(ref velocity);
+        return VerticalCollisions(ref velocity, ref platformVel);
     }
 
-    void VerticalCollisions(ref Vector3 velocity)
+    Collider2D VerticalCollisions(ref Vector3 velocity, ref Vector3 platformVel)
     {
         float direction = Mathf.Sign(velocity.y);
         float rayLength = Mathf.Abs(velocity.y) + skinWidth;
         float yPos = (direction == -1) ? cornerPos.bottomRight.y: cornerPos.topLeft.y;
-        Vector3 platformVelocity = Vector3.zero;
         playerMovement.isTouchingGround = false;
+        Vector3 platformVelocity = Vector3.zero;
+        Collider2D groundCollider = null;
+
         for (float i = cornerPos.topLeft.x; i <= cornerPos.bottomRight.x + 0.0001f; i += vertRaySpacing)
         {
             Vector2 rayOrigin = new Vector3(i, yPos);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * direction, rayLength, collisionMask);
             if (hit)
             {
-                if (hit.distance <= skinWidth + 0.0001f && direction == -1)
+                IPlatform platform = hit.collider.GetComponent<IPlatform>();
+                platformVelocity = platform.velocity();
+                if (hit.distance <= skinWidth + 0.0001f + Math.Abs(platformVelocity.y) && direction == -1)
                 {
-                    Debug.Log(hit.collider.gameObject);
                     playerMovement.isTouchingGround = true;
                     playerMovement.isJumping = false;
-                    IPlatform platform = hit.collider.gameObject.GetComponent<IPlatform>();
-                    platformVelocity = platform.velocity();
+                    platformVel = platformVelocity;
+                    groundCollider = hit.collider;
                 }
                 velocity.y = (hit.distance - skinWidth) * direction;
                 rayLength = hit.distance;
             }
 
-            velocity += platformVelocity;
+            velocity += platformVel;
             Debug.DrawRay(rayOrigin, Vector3.up * (direction * rayLength), Color.red);
-
-            
+            // Debug.Log(platformVel + " " + hit.distance);  
         }   
+        
+        return groundCollider;
+    }
+    
+    void HorizontalCollisions(ref Vector3 velocity)
+    {
+        float direction = Mathf.Sign(velocity.y);
+        float rayLength = Mathf.Abs(velocity.y) + skinWidth;
+        float xPos = (direction == -1) ? cornerPos.topLeft.x: cornerPos.bottomRight.x;
+
+        for (float i = cornerPos.bottomRight.y; i <= cornerPos.topLeft.y + 0.0001f; i += horizRaySpacing)
+        {
+            Vector2 rayOrigin = new Vector3(xPos, i);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * direction, rayLength, collisionMask);
+            if (hit)
+            {
+                velocity.x = (hit.distance - skinWidth) * direction;
+                rayLength = hit.distance;
+            }
+            Debug.DrawRay(rayOrigin, Vector3.up * (direction * rayLength), Color.red);
+        }   
+        
     }
 
     void UpdateRaycastOrigins()
