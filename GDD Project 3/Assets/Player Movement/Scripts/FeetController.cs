@@ -12,22 +12,26 @@ public class FeetController : MonoBehaviour
     {
 		pm = GetComponentInParent<PlayerMovement>();
     }
+	
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.collider.CompareTag("Floor"))
+		if (collision.gameObject.CompareTag("Floor"))
 		{
 			//pm.canPropulse = true;
-			pm.touchingFloor = true;	
+			pm.touchingFloor = true;
 		}
+
 	}
 
-	private void OnCollisionExit2D(Collision2D collision)
+	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.collider.CompareTag("Floor"))
+		if (collision.gameObject.CompareTag("Floor"))
 		{
-			//pm.canPropulse = false;
+			//pm.canPropulse = true;
 			pm.touchingFloor = false;
 		}
+
 	}
+	
 }

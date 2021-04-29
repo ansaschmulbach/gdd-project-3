@@ -24,6 +24,7 @@ public class LeftColliderScript : MonoBehaviour
 	private IEnumerator DelayedRelease()
     {
 		yield return new WaitForSeconds(0.0833f);
+
 		pm.leftContact = false;
 	}
 }

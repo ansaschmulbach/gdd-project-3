@@ -73,7 +73,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool leftContact
 	{
 		get { return left; }
-		set { left = value; }
+		set {
+			left = value;
+		}
 	}
 
 	/* Whether the player is touching a wall on their right. */
@@ -81,7 +83,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool rightContact
 	{
 		get { return right; }
-		set { right = value; }
+		set {
+			right = value;
+		}
 	}
 
 	#endregion
@@ -96,14 +100,13 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Unity methods
 
-	// Start is called before the first frame update
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
 		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 		pc = GetComponent<PlayerController>();
-		asrc = GetComponent<AudioSource>();
-		asrc.playOnAwake = false;
+		//asrc = GetComponent<AudioSource>();
+		//asrc.playOnAwake = false;
 		jumpTimer = 0;
 		jumpVector = new Vector2(0, jumpSpeed * rb.gravityScale);
 		pushVector = new Vector2(movementSpeed / 5, 0);
@@ -116,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
     {
+
 		if (!isActive)
 		{
 			rb.gravityScale = 0;
@@ -131,6 +135,14 @@ public class PlayerMovement : MonoBehaviour
 		if (!isActive)
         {
 			return;
+		}
+
+		if (Input.GetKey(KeyCode.Space))
+		{
+			Jump();
+		} else
+		{
+			doubleJumpThrottle = false;
 		}
 
 		if (m_canPropulse || touchingFloor)
@@ -225,15 +237,6 @@ public class PlayerMovement : MonoBehaviour
 			hasDoubleJumped = false;
 		}
 	}
-
-	/*
-	private void OnCollisionExit2D(Collision2D other)
-	{
-		if (other.collider.CompareTag("Wall"))
-		{
-			this.touchingWall = false;
-		}
-	}*/
 
 	#endregion
 }
