@@ -6,7 +6,14 @@ public class PlayerOneController : PlayerController
 {
 	protected override void SetStartState()
 	{
-		SetEnabled();
+		if (order == lm.lastPlayerIndex)
+        {
+			SetEnabled();
+		} else
+        {
+			//SetDisabled();
+			DisableMovement();
+        }
 	}
 	
 }

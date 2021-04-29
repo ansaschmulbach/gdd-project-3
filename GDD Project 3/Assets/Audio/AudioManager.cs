@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour
     [Tooltip("Checkpoints at which to re-equalize audio")]
     public GameObject[] checkpoints;
 
-    public static AudioManager instance = null;
     private AudioSource t_src;
     private AudioLowPassFilter t_lp;
 
@@ -42,6 +41,7 @@ public class AudioManager : MonoBehaviour
     private float transition = 0.6f;
 
     public float[] freqs;
+    public float[] b_freqs;
     public float[] samples;
     private float[] temp;
 
@@ -62,6 +62,7 @@ public class AudioManager : MonoBehaviour
      *        0.0166...     60                  */
     public const float REFRESH_TIME = 0.0833f;
 
+    public static AudioManager instance = null;
 
     private void Awake()
     {
@@ -78,6 +79,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         freqs = new float[1024];
+        b_freqs = new float[256];
         samples = new float[16];
         temp = new float[16];
 
@@ -310,6 +312,7 @@ public class AudioManager : MonoBehaviour
     private float[] spectrum()
     {
         t_src.GetSpectrumData(freqs, 0, FFTWindow.Rectangular);
+        b_src.GetSpectrumData(b_freqs, 0, FFTWindow.Rectangular);
         t_src.GetOutputData(temp, 0);
         t_src.GetOutputData(samples, 1);
         for (int i = 0; i < samples.Length; i++)

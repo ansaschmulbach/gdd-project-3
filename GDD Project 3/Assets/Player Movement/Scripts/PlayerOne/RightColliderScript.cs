@@ -18,6 +18,12 @@ public class RightColliderScript : MonoBehaviour
 
 	void OnCollisionExit2D(Collision2D c)
 	{
+		StartCoroutine(DelayedRelease());
+	}
+
+	private IEnumerator DelayedRelease()
+	{
+		yield return new WaitForSeconds(0.0833f);
 		pm.rightContact = false;
 	}
 }

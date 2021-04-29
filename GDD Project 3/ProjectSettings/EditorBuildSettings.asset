@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/MVP Level.unity
     guid: 7b4a36f1519284a68a78c5d0774c911b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Level 2/MVP Level 1.unity
     guid: e072c7fc06bf846bc92051ab38aa1d40
   - enabled: 1
-    path: Assets/Level Transition/Level 2.unity
-    guid: 253881fd96ba5451aa8ba69f2e1f9cae
+    path: Assets/Scenes/MovingPlatformLevel.unity
+    guid: d32fbba256353fa4fa6e19ee97381531
   m_configObjects: {}

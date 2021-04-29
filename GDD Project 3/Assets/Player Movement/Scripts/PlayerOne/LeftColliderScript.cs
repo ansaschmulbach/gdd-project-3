@@ -18,6 +18,13 @@ public class LeftColliderScript : MonoBehaviour
 
 	void OnCollisionExit2D(Collision2D c)
 	{
+		StartCoroutine(DelayedRelease());
+	}
+
+	private IEnumerator DelayedRelease()
+    {
+		yield return new WaitForSeconds(0.0833f);
+
 		pm.leftContact = false;
 	}
 }

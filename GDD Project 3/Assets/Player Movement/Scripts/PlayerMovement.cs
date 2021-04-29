@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
 	[Tooltip("Can you move mid-air?")]
 	public bool touchingFloor;
 
-	[SerializeField] [Tooltip("Can you wall jump?")]
+	[SerializeField]
+	[Tooltip("Can you wall jump?")]
 	public bool canWallJump;
 
 	[SerializeField]
@@ -27,9 +28,10 @@ public class PlayerMovement : MonoBehaviour
 	[Tooltip("Can move")]
 	public bool isActive = true;
 
-	[SerializeField] [Tooltip("Can Double Jump?")]
+	[SerializeField]
+	[Tooltip("Can Double Jump?")]
 	private bool canDoubleJump;
-	
+
 	#endregion
 
 	#region Jumping variables
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private Vector2 vel;
 
-	private bool hasDoubleJumped = true;
+	private bool hasDoubleJumped;
 
 	#endregion
 
@@ -106,18 +108,32 @@ public class PlayerMovement : MonoBehaviour
 		//asrc = GetComponent<AudioSource>();
 		//asrc.playOnAwake = false;
 		jumpTimer = 0;
-		jumpVector = new Vector2(0, jumpSpeed / 36);
-		pushVector = new Vector2(jumpSpeed / 32, 0);
+		jumpVector = new Vector2(0, jumpSpeed * rb.gravityScale);
+		pushVector = new Vector2(movementSpeed / 5, 0);
 		vel = Vector2.zero;
 		left = false;
 		right = false;
+		hasDoubleJumped = false;
 	}
 
-	void Update()
+	// Update is called once per frame
+	void FixedUpdate()
     {
 
 		if (!isActive)
 		{
+			rb.gravityScale = 0;
+		}
+		else
+		{
+			rb.gravityScale = 6.5f;
+		}
+	}
+
+	void Update()
+    {
+		if (!isActive)
+        {
 			return;
 		}
 
@@ -132,26 +148,41 @@ public class PlayerMovement : MonoBehaviour
 		if (m_canPropulse || touchingFloor)
 		{
 
-			float xDir = Input.GetAxisRaw("Horizontal");
-			xDir *= 0.2f;
+			float xDir = 0.2f * Input.GetAxisRaw("Horizontal");
+			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
+			if (vel.x > 10 && xDir < 0 || vel.x < -10 && xDir > 0)
+			{
+				xDir *= 2;
+			}
+			/*if (!touchingFloor)
+            {
+				xDir = xDir * 0.75f;
+				
+            } */
 			vel = rb.velocity;
 
-			if (left || right)
+			if ((xDir < 0 && left) || (xDir > 0 && right))
 			{
 				if (left && right && touchingFloor)
                 {
-					//pc.Die();
+					pc.Die();
                 }
-				if (xDir != 0) { 
-					vel.y = Mathf.Max(-1f, vel.y);
-				}
+				xDir *= 0.75f;
+				vel.y = Mathf.Max(-0.5f, vel.y);
 			}
-			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed, 0.02f);
+			vel.x = xDir + Mathf.Lerp(vel.x, xDir * movementSpeed * 1.5f, 0.0275f);
 			rb.velocity = vel;
 			
 		}
 
-		jumpTimer = Mathf.Max(0f, jumpTimer - Time.deltaTime);
+		if (touchingFloor || canDoubleJump|| left || right) {
+			if (Input.GetKey(KeyCode.Space))
+			{
+				Jump();
+			}
+		}
+
+		jumpTimer = jumpTimer - Time.deltaTime;
 
 	}
 
@@ -161,40 +192,37 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
-
-		if (jumpTimer == 0)
+		if (jumpTimer < 0)
 		{
 			jumpTimer = maxJumpRate;
 
 
 			if (touchingFloor)
 			{
-				Debug.Log("JUMP");
-				// rb.AddForce(Vector2.up * jumpSpeed);
 				rb.velocity += jumpVector;
-				transform.localPosition += new Vector3(0, 1f, 0);
-				doubleJumpThrottle = true;
+				asrc.Play();
 			}
 			else if (left)
             {
-				// rb.AddForce(new Vector2(jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector + pushVector;
-
+				asrc.Play();
 			}
 			else if (right)
             {
-	            // rb.AddForce(new Vector2(-jumpSpeed, jumpSpeed));
 				rb.velocity += jumpVector - pushVector;
-			} 
-			else if (!hasDoubleJumped && canDoubleJump && !doubleJumpThrottle)
-			{
-				Debug.Log("DOUBLE JUMP");
-				rb.velocity += jumpVector;
-				transform.localPosition += new Vector3(0, 1f, 0);
-				hasDoubleJumped = true;
-			}
+				asrc.Play();
 
-			//asrc.Play();
+			}
+			else if (!hasDoubleJumped && canDoubleJump)
+			{
+				// Debug.Log("DOUBLE JUMP");
+				Vector2 vel = rb.velocity;
+				vel.y = Mathf.Max(rb.velocity.y, -0.1f);
+				rb.velocity = vel + jumpVector;
+				//transform.localPosition += new Vector3(0, 1f, 0);
+				hasDoubleJumped = true;
+				asrc.Play();
+			}
 		}
 	}
 
@@ -209,14 +237,6 @@ public class PlayerMovement : MonoBehaviour
 			hasDoubleJumped = false;
 		}
 	}
-
-	// private void OnCollisionExit2D(Collision2D other)
-	// {
-	// 	if (other.collider.CompareTag("Wall")) 
-	// 	{
-	// 		
-	// 	}
-	// }
 
 	#endregion
 }
