@@ -31,6 +31,8 @@ public class CameraFollow : MonoBehaviour
     {
         UpdatePlayer();
         cr_Camera = GetComponent<Camera>();
+        cr_Camera.opaqueSortMode = UnityEngine.Rendering.OpaqueSortMode.FrontToBack;
+        cr_Camera.transparencySortMode = TransparencySortMode.Orthographic;
     }
 
     #endregion

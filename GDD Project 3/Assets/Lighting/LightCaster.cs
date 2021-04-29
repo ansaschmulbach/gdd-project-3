@@ -14,6 +14,8 @@ public class LightCaster : MonoBehaviour
 
     private float offset = 0.1f;
 
+    private float random;
+
     public struct angledVerts {
 
         public Vector3 vert;
@@ -65,10 +67,11 @@ public class LightCaster : MonoBehaviour
         //reposition.Scale(transform.localScale);
         lightRays.transform.position -= reposition;
         lightRays.transform.position -= new Vector3(0, 0, 0.01f);
+        random = Random.value;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         for (int i = 0; i < raycastsPerFrame; i += 4)
         {
@@ -84,9 +87,9 @@ public class LightCaster : MonoBehaviour
 
         int h = 0;
 
-        float random = Random.value;
+        // float random = Random.value;
         float randomX = offset * (1f + random * audio.freqs[16] * audio.beatProgress);
-        float randomY = offset * (1f + random * 25 * audio.freqs[16] * audio.beatProgress);
+        float randomY = offset * (1f + random * 3 * audio.b_freqs[1]);
 
         //float randomX = offset;
         //float randomY = offset;
