@@ -64,7 +64,6 @@ public abstract class PlayerController : MonoBehaviour
 
     public void SetEnabled()
     {
-        Debug.Log("hii");
         cr_pm.isActive = true;
         this.GetComponent<Rigidbody2D>().isKinematic = false;
         cr_col.enabled = true;
