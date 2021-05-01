@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+	#region aspdasd
+	Vector3 scale;
+	private SpriteRenderer sr;
+	#endregion
+
+	#region animator
+	public Animator animator;
+	#endregion
 
 	#region Movement variables
 
@@ -40,9 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField]
 	[Tooltip("Max jump rate in seconds")]
-	private float maxJumpRate = 0.6f;
-
-	private bool doubleJumpThrottle;
+	private float maxJumpRate = 0.3f;
 
 	/**If you're touching a wall, you can't propulse*/
 	private bool touchingWall;
@@ -102,6 +108,9 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start()
     {
+		scale = transform.localScale;
+		sr = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 		pc = GetComponent<PlayerController>();
@@ -140,15 +149,19 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKey(KeyCode.Space))
 		{
 			Jump();
-		} else
-		{
-			doubleJumpThrottle = false;
 		}
-
 		if (m_canPropulse || touchingFloor)
 		{
 
 			float xDir = 0.2f * Input.GetAxisRaw("Horizontal");
+			if (xDir > 0) {
+				this.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+				//sr.flipX = true;
+			} else if (xDir < 0) {
+				this.transform.localScale = scale;
+				//sr.flipX = false;
+			}
+			//if facing right, flip (sr flip x = true)
 			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
 			if (vel.x > 10 && xDir < 0 || vel.x < -10 && xDir > 0)
 			{
@@ -160,11 +173,12 @@ public class PlayerMovement : MonoBehaviour
 				
             } */
 			vel = rb.velocity;
-
+			//Sliding on wall
 			if ((xDir < 0 && left) || (xDir > 0 && right))
 			{
 				if (left && right && touchingFloor)
                 {
+					Debug.Log("asd");
 					pc.Die();
                 }
 				xDir *= 0.75f;
@@ -181,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
 				Jump();
 			}
 		}
+		animator.SetBool("WallJump", false);
 
 		jumpTimer = jumpTimer - Time.deltaTime;
 
@@ -192,29 +207,36 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
+		Debug.Log("u jumped lol");
 		if (jumpTimer < 0)
 		{
 			jumpTimer = maxJumpRate;
 
-
+			//regular jump
 			if (touchingFloor)
 			{
+				animator.SetTrigger("Jump");
 				rb.velocity += jumpVector;
 				asrc.Play();
 			}
+			//walljumps
 			else if (left)
             {
+				animator.SetBool("WallJump", true);
 				rb.velocity += jumpVector + pushVector;
 				asrc.Play();
 			}
+			//walljump
 			else if (right)
             {
+				animator.SetBool("WallJump", true);
 				rb.velocity += jumpVector - pushVector;
 				asrc.Play();
-
 			}
+			//double jump, only for bass clef
 			else if (!hasDoubleJumped && canDoubleJump)
 			{
+				animator.SetTrigger("Jump");
 				// Debug.Log("DOUBLE JUMP");
 				Vector2 vel = rb.velocity;
 				vel.y = Mathf.Max(rb.velocity.y, -0.1f);
