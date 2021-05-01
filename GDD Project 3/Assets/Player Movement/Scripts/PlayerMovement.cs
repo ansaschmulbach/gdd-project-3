@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+	#region aspdasd
+	Vector3 scale;
+	private SpriteRenderer sr;
+	#endregion
+
 	#region animator
 	public Animator animator;
 	#endregion
@@ -103,6 +108,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start()
     {
+		scale = transform.localScale;
+		sr = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -147,6 +154,13 @@ public class PlayerMovement : MonoBehaviour
 		{
 
 			float xDir = 0.2f * Input.GetAxisRaw("Horizontal");
+			if (xDir > 0) {
+				this.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+				//sr.flipX = true;
+			} else if (xDir < 0) {
+				this.transform.localScale = scale;
+				//sr.flipX = false;
+			}
 			//if facing right, flip (sr flip x = true)
 			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
 			if (vel.x > 10 && xDir < 0 || vel.x < -10 && xDir > 0)
@@ -193,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
+		Debug.Log("u jumped lol");
 		if (jumpTimer < 0)
 		{
 			jumpTimer = maxJumpRate;
