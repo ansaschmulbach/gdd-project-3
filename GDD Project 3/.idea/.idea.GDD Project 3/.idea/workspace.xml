@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5171a175-b5f6-4273-a506-211db32f0db8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Level Transition/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1619227396246</updated>
       <workItem from="1619227421929" duration="1519000" />
+      <workItem from="1619663700376" duration="724000" />
     </task>
     <servers />
   </component>

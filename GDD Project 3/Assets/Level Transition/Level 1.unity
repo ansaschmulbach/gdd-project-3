@@ -854,6 +854,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Two
       objectReference: {fileID: 0}
+    - target: {fileID: 183066682195363763, guid: 6de6d32b9fe76ef4ea7266a0dd0b5ce8,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 6.5
+      objectReference: {fileID: 0}
     - target: {fileID: 183066682195363773, guid: 6de6d32b9fe76ef4ea7266a0dd0b5ce8,
         type: 3}
       propertyPath: m_Material
@@ -1090,6 +1095,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player One
       objectReference: {fileID: 0}
+    - target: {fileID: 2071068779688768197, guid: 2a3e9fd3fc2eded498c11b91f23514a3,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2071068779688768216, guid: 2a3e9fd3fc2eded498c11b91f23514a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1144,6 +1154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071068779688768217, guid: 2a3e9fd3fc2eded498c11b91f23514a3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 2071068779688768218, guid: 2a3e9fd3fc2eded498c11b91f23514a3,
         type: 3}
