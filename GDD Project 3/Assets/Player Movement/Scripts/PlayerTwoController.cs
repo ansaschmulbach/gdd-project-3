@@ -7,14 +7,7 @@ public class PlayerTwoController : PlayerController
 
 	protected override void SetStartState()
 	{
-		if (order == lm.lastPlayerIndex)
-		{
-			SetEnabled();
-		}
-		else
-		{
-			DisableMovement();
-		}
+		DisableMovement();
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -22,23 +15,13 @@ public class PlayerTwoController : PlayerController
 		
 		Debug.Log(collision.gameObject.tag);
 		
-		if (collision.gameObject.CompareTag("Player"))
-		{
-			Debug.Log(collision.gameObject);
-			if (collision.gameObject.TryGetComponent(out PlayerController pc))
-			{
-				Debug.Log("setting disabled");
-				this.SetEnabled();
-				pc.SetDisabled();
-				lm.UpdateLastPlayer(gameObject);
-			}
-		} 
-		else if (collision.gameObject.CompareTag("LeftRight"))
+		if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("LeftRight"))
 		{
 			PlayerController pc = collision.collider.GetComponentInParent<PlayerController>();
 			this.SetEnabled();
 			pc.SetDisabled();
-			lm.UpdateLastPlayer(gameObject);
+			GameObject transitioner = GameObject.FindWithTag("LevelTransitioner");
+			transitioner.GetComponent<LevelTransitioner>().EnableTransition();
 		}
 
 	}
