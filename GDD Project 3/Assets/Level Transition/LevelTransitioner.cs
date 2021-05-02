@@ -19,16 +19,12 @@ public class LevelTransitioner : MonoBehaviour
     private static LevelTransitioner instance;
     void Start()
     {
-<<<<<<< HEAD
-        
-=======
         if (instance != null)
         {
             Destroy(this.gameObject);
         }
 
         instance = this;
->>>>>>> 78bd0b9d729b76f3918b233d3239b6be2fb572f4
         DontDestroyOnLoad(this.gameObject);
         sr = GetComponent<SpriteRenderer>();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
