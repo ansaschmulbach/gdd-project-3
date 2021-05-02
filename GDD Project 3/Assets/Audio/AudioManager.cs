@@ -113,6 +113,13 @@ public class AudioManager : MonoBehaviour
     }
 
     /* Public muffle interface. */
+    public void volume(float f)
+    {
+        t_src.volume = f;
+        b_src.volume = f;
+    }
+
+    /* Public muffle interface. */
     public void muffle(float f)
     {
         float inv = 22000f - f;
