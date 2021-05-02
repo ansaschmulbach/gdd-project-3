@@ -65,19 +65,12 @@ public class LevelTransitioner : MonoBehaviour
 
     IEnumerator Transition()
     {
-<<<<<<< HEAD
-=======
-        
->>>>>>> 78bd0b9d729b76f3918b233d3239b6be2fb572f4
         yield return MovePlayer();
         yield return Fade(1);
         SceneManager.LoadScene(nextLevel);
         DisableTransition();
         yield return Fade(0);
-<<<<<<< HEAD
         Destroy(this.gameObject);
-=======
->>>>>>> 78bd0b9d729b76f3918b233d3239b6be2fb572f4
     }
 
     IEnumerator MovePlayer()
