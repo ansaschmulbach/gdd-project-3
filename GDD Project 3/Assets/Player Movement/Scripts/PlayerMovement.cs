@@ -114,8 +114,8 @@ public class PlayerMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 		pc = GetComponent<PlayerController>();
-		//asrc = GetComponent<AudioSource>();
-		//asrc.playOnAwake = false;
+		asrc = GetComponent<AudioSource>();
+		asrc.playOnAwake = false;
 		jumpTimer = 0;
 		jumpVector = new Vector2(0, jumpSpeed * rb.gravityScale);
 		pushVector = new Vector2(movementSpeed / 5, 0);
@@ -220,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
 				asrc.Play();
 			}
 			//walljumps
-			else if (left)
+			else if (left || right)
             {
 				animator.SetBool("WallJump", true);
 				rb.velocity += jumpVector + pushVector;
