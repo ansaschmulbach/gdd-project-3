@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Level 2/MVP Level 1.unity
     guid: e072c7fc06bf846bc92051ab38aa1d40
   - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 38c926241f7a942a8a29c8819bfd45a5
+  - enabled: 1
     path: Assets/Scenes/MovingPlatformLevel.unity
     guid: d32fbba256353fa4fa6e19ee97381531
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 253881fd96ba5451aa8ba69f2e1f9cae
+  - enabled: 1
+    path: Assets/Scenes/DisappearingPlatformLevel.unity
+    guid: 98ed75ac090aaa442a21b8e660a8f4e0
+  - enabled: 1
+    path: Assets/Scenes/BasicLevel.unity
+    guid: d55a657fdaadda4418b2655fb0eeab0b
   m_configObjects: {}

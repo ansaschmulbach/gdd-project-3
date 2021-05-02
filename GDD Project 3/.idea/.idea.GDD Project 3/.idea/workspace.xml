@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5171a175-b5f6-4273-a506-211db32f0db8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Level Objects/Player 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Objects/Player 1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Level Transition/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Level Transition/Level 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/Level 2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +24,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/FeetController.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -64,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1619227396246</updated>
       <workItem from="1619227421929" duration="1519000" />
+      <workItem from="1619910805370" duration="4789000" />
     </task>
     <servers />
   </component>

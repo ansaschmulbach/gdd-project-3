@@ -19,14 +19,19 @@ public class LevelTransitioner : MonoBehaviour
     private static LevelTransitioner instance;
     void Start()
     {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-
-        instance = this;
+        
         DontDestroyOnLoad(this.gameObject);
         sr = GetComponent<SpriteRenderer>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject p in players)
+        {
+            if (p.GetComponent<PlayerMovement>().isActive)
+            {
+                player = p;
+            }
+        }
+
+        //this.transform.position = player.transform.position;
         DisableTransition();
         
     }
@@ -55,12 +60,12 @@ public class LevelTransitioner : MonoBehaviour
 
     IEnumerator Transition()
     {
-        
         yield return MovePlayer();
         yield return Fade(1);
         SceneManager.LoadScene(nextLevel);
         DisableTransition();
         yield return Fade(0);
+        Destroy(this.gameObject);
     }
 
     IEnumerator MovePlayer()

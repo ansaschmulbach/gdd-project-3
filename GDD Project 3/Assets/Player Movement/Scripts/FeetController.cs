@@ -16,9 +16,10 @@ public class FeetController : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		Debug.Log(collision.gameObject.CompareTag("Floor"));
 		if (collision.gameObject.CompareTag("Floor"))
 		{
-			//pm.canPropulse = true;
+			//pm.canPropulse = true
 			pm.touchingFloor = true;
 		}
 
