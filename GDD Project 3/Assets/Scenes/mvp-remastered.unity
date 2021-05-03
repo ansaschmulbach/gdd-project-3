@@ -2113,12 +2113,12 @@ PrefabInstance:
     - target: {fileID: 3950514621633171851, guid: 73a26b3c7a4089641873909a364424a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -197.7
+      value: -144.3
       objectReference: {fileID: 0}
     - target: {fileID: 3950514621633171851, guid: 73a26b3c7a4089641873909a364424a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 19.4
       objectReference: {fileID: 0}
     - target: {fileID: 3950514621633171851, guid: 73a26b3c7a4089641873909a364424a7,
         type: 3}
@@ -2520,8 +2520,7 @@ MonoBehaviour:
   - {fileID: 624341494}
   - {fileID: 498598982}
   - {fileID: 1075397438}
-  layerTwo:
-  - {fileID: 1391880511}
+  layerTwo: []
   layerThree:
   - {fileID: 211169022}
   trebleColor:

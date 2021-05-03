@@ -121,12 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &8796489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2216780004513551175, guid: 9d8b03accb1ec7346a7dbd755d0ae745,
-    type: 3}
-  m_PrefabInstance: {fileID: 1392102100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &12218974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1448,8 +1442,7 @@ MonoBehaviour:
   - {fileID: 1155847001}
   - {fileID: 383546746}
   - {fileID: 15113349}
-  layerTwo:
-  - {fileID: 8796489}
+  layerTwo: []
   layerThree:
   - {fileID: 536701303}
   trebleColor:
@@ -1861,12 +1854,12 @@ PrefabInstance:
     - target: {fileID: 3950514621633171851, guid: 73a26b3c7a4089641873909a364424a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -183.1
+      value: -65.7
       objectReference: {fileID: 0}
     - target: {fileID: 3950514621633171851, guid: 73a26b3c7a4089641873909a364424a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 38.8
       objectReference: {fileID: 0}
     - target: {fileID: 3950514621633171851, guid: 73a26b3c7a4089641873909a364424a7,
         type: 3}
@@ -2574,6 +2567,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1224766206358150210, guid: e92998db92157c240885e1b83e458440,
+        type: 3}
+      propertyPath: layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 72715863326884458, guid: e92998db92157c240885e1b83e458440,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3695,7 +3693,7 @@ PrefabInstance:
     - target: {fileID: 1824122122668244580, guid: 42d4242bab8d5254bba393903591f510,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.4
+      value: -62.8
       objectReference: {fileID: 0}
     - target: {fileID: 1824122122668244580, guid: 42d4242bab8d5254bba393903591f510,
         type: 3}
