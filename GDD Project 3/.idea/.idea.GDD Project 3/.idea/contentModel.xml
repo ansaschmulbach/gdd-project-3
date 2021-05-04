@@ -6,6 +6,7 @@
       <e p="Assets" t="Include">
         <e p="Audio" t="Include">
           <e p="AudioManager.cs" t="Include" />
+          <e p="BassVerticalVisualizer.cs" t="Include" />
           <e p="CheckpointScript.cs" t="Include" />
           <e p="NewBehaviourScript.cs" t="Include" />
           <e p="Track.cs" t="Include" />
@@ -23,19 +24,26 @@
           <e p="RotatePlatform.cs" t="Include" />
           <e p="SlidePlatform.cs" t="Include" />
         </e>
+        <e p="Level Objects" t="Include">
+          <e p="EasterEgg.cs" t="Include" />
+        </e>
         <e p="Level Transition" t="Include">
           <e p="LevelTransitioner.cs" t="Include" />
         </e>
         <e p="Lighting" t="Include">
           <e p="LightCaster.cs" t="Include" />
         </e>
+        <e p="MainMenu.cs" t="Include" />
         <e p="More Levels" t="Include">
           <e p="LevelGoal.cs" t="Include" />
         </e>
         <e p="Player Movement" t="Include">
           <e p="Scripts" t="Include">
+            <e p="ColorManager.cs" t="Include" />
             <e p="FeetController.cs" t="Include" />
+            <e p="LevelManager.cs" t="Include" />
             <e p="Platforms" t="Include">
+              <e p="AddToColorManager.cs" t="Include" />
               <e p="DisappearPlatform.cs" t="Include" />
               <e p="RhythmPlatform.cs" t="Include" />
             </e>

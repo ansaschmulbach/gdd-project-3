@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Level 2/MVP Level 1.unity
     guid: e072c7fc06bf846bc92051ab38aa1d40
   - enabled: 1
+    path: Assets/Scenes/Title Scene.unity
+    guid: 38703b79bcee941eebd9c1d3a4f68643
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 38c926241f7a942a8a29c8819bfd45a5
   - enabled: 1

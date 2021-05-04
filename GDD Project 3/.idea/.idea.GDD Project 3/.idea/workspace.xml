@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5171a175-b5f6-4273-a506-211db32f0db8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Transition/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/Level 1.unity" afterDir="false" />
+    <list default="true" id="18db1a86-aea2-4469-ad52-9f3a349e249c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Level Transition/cover art.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Level Transition/cover art.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Level Transition/main menu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Level Transition/main menu.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MainMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MainMenu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Title Scene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Title Scene.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDD Project 3/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation Testing/Assets/Perfect DOS VGA 437 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation Testing/Assets/Perfect DOS VGA 437 SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,13 +51,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player Movement/Scripts/PlayerTwoController.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Transition/LevelTransitioner.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1rawDESlTmULFl2KTPACt04jLYu" />
+  <component name="ProjectId" id="1s5pZFi4Rrzgaqz6lITPtqUYChL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -58,13 +89,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5171a175-b5f6-4273-a506-211db32f0db8" name="Default Changelist" comment="" />
-      <created>1619227396246</created>
+      <changelist id="18db1a86-aea2-4469-ad52-9f3a349e249c" name="Default Changelist" comment="" />
+      <created>1620172367438</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1619227396246</updated>
-      <workItem from="1619227421929" duration="1519000" />
-      <workItem from="1619663700376" duration="724000" />
+      <updated>1620172367438</updated>
+      <workItem from="1620172380932" duration="48000" />
+      <workItem from="1620172689411" duration="125000" />
     </task>
     <servers />
   </component>
@@ -73,13 +104,19 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="535" y="141" width="672" height="678" key="search.everywhere.popup" timestamp="1619228065319">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="535" y="141" width="672" height="678" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1619228065319" />
   </component>
 </project>
