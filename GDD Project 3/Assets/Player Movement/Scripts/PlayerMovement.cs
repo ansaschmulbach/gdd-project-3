@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private Vector2 vel;
 
-	private bool hasDoubleJumped;
+	public bool hasDoubleJumped;
 
 	#endregion
 
@@ -146,20 +146,20 @@ public class PlayerMovement : MonoBehaviour
 			return;
 		}
 
-		if (Input.GetKey(KeyCode.Space))
+		/*if (Input.GetKey(KeyCode.Space))
 		{
 			Jump();
-		}
+		} */
 		if (m_canPropulse || touchingFloor)
 		{
 
 			float xDir = 0.2f * Input.GetAxisRaw("Horizontal");
 			if (xDir > 0) {
-				this.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-				//sr.flipX = true;
+				//this.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+				sr.flipX = true;
 			} else if (xDir < 0) {
-				this.transform.localScale = scale;
-				//sr.flipX = false;
+				//this.transform.localScale = scale;
+				sr.flipX = false;
 			}
 			//if facing right, flip (sr flip x = true)
 			// rb.AddForce(Vector2.right * (xDir * movementSpeed * Time.deltaTime), ForceMode2D.Force);
@@ -195,7 +195,9 @@ public class PlayerMovement : MonoBehaviour
 				Jump();
 			}
 		}
-		animator.SetBool("WallJump", false);
+		if (canWallJump) {
+			animator.SetBool("WallJump", false);
+		}
 
 		jumpTimer = jumpTimer - Time.deltaTime;
 
@@ -207,7 +209,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
-		Debug.Log("u jumped lol");
+		if (touchingFloor) {
+			Debug.Log("Touching floor");
+		}
+
 		if (jumpTimer < 0)
 		{
 			jumpTimer = maxJumpRate;
@@ -215,12 +220,13 @@ public class PlayerMovement : MonoBehaviour
 			//regular jump
 			if (touchingFloor)
 			{
+				Debug.Log("Regular jump");
 				animator.SetTrigger("Jump");
 				rb.velocity += jumpVector;
 				asrc.Play();
 			}
 			//walljumps
-			else if (left || right)
+			else if (left)
             {
 				animator.SetBool("WallJump", true);
 				rb.velocity += jumpVector + pushVector;
@@ -237,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
 			else if (!hasDoubleJumped && canDoubleJump)
 			{
 				animator.SetTrigger("Jump");
-				// Debug.Log("DOUBLE JUMP");
+				Debug.Log("DOUBLE JUMP");
 				Vector2 vel = rb.velocity;
 				vel.y = Mathf.Max(rb.velocity.y, -0.1f);
 				rb.velocity = vel + jumpVector;
@@ -252,13 +258,13 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Collision Methods
 
-	private void OnCollisionEnter2D(Collision2D other)
+	/*private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.collider.CompareTag("Floor"))
 		{
 			hasDoubleJumped = false;
 		}
-	}
+	}*/
 
 	#endregion
 }

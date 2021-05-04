@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 3950514621633171862}
   - component: {fileID: 3950514621633171850}
   - component: {fileID: 3950514621633171853}
-  - component: {fileID: 986687090051100788}
-  - component: {fileID: 6998677250243370448}
+  - component: {fileID: 1244769746}
+  - component: {fileID: 1244769747}
+  - component: {fileID: 1244769740}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -104,7 +105,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21309233, y: 0.12965369}
+  m_Offset: {x: 0, y: 0.12965369}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,14 +130,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1e616427a89214f8515cdb36cc8d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 986687090051100788}
+  animator: {fileID: 986687090051100788, guid: 73a26b3c7a4089641873909a364424a7, type: 3}
   movementSpeed: 120
   touchingFloor: 0
   canWallJump: 1
-  jumpSpeed: 2
+  jumpSpeed: 6
   isActive: 1
   canDoubleJump: 0
-  maxJumpRate: 0.33
+  maxJumpRate: 0.2
+  hasDoubleJumped: 0
 --- !u!50 &3950514621633171850
 Rigidbody2D:
   serializedVersion: 4
@@ -149,10 +151,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 12
+  m_GravityScale: 6.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -171,26 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   order: 0
---- !u!95 &986687090051100788
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3950514621633171863}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb7f9329d41eb430c824ede49d0f860d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &6998677250243370448
+--- !u!82 &1244769746
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,14 +184,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f5b3e4070715eeb4c93b88b1214b421e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 63
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -286,6 +269,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!165 &1244769747
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950514621633171863}
+  m_Enabled: 0
+  m_CutoffFrequency: 5000
+  m_HighpassResonanceQ: 1
+--- !u!95 &1244769740
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950514621633171863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb7f9329d41eb430c824ede49d0f860d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3950514622111453216
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +343,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19922066, y: -0.3338051}
+  m_Offset: {x: 0, y: -0.3338051}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -401,7 +413,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.441018, y: 0.14312184}
+  m_Offset: {x: -0.2, y: 0.14312184}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -471,7 +483,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010638036, y: 0.1441046}
+  m_Offset: {x: 0.21, y: 0.1441046}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

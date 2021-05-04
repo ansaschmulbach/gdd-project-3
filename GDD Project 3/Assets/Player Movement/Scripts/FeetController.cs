@@ -21,6 +21,7 @@ public class FeetController : MonoBehaviour
 		{
 			//pm.canPropulse = true
 			pm.touchingFloor = true;
+			pm.hasDoubleJumped = false;
 		}
 
 	}
